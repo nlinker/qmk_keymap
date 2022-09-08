@@ -3,18 +3,23 @@
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
 #define ORYX_CONFIGURATOR
-
-#undef TAPPING_TERM
-#define TAPPING_TERM 200
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT
-// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 180
+
+//
+#define TAPPING_TERM_PER_KEY
+
 // Apply the modifier on keys that are tapped during a short hold of a modtap
 #define PERMISSIVE_HOLD
 
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+#define TAPPING_FORCE_HOLD
+
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define FIRMWARE_VERSION u8"gqXJ4/EqjzY"
+#define FIRMWARE_VERSION u8"gqXJ4/rjryn"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
