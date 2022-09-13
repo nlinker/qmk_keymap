@@ -7,7 +7,7 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 175
+#define TAPPING_TERM 225
 
 // Make X and > to be easier triggered
 #define TAPPING_TERM_PER_KEY
@@ -19,7 +19,10 @@
 #define TAPPING_FORCE_HOLD
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define FIRMWARE_VERSION u8"gqXJ4/VKyqX"
+#undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_TIME_TO_MAX 100
+
+#define FIRMWARE_VERSION u8"gqXJ4/zwNVr"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
