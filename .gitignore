@@ -10,3 +10,5 @@
 # Log
 *.log
 
+/optozorax/
+/oryx_download/
