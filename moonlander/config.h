@@ -11,7 +11,7 @@
 #define TAPPING_TERM 200
 
 // Make X and > to be easier triggered
-#define TAPPING_TERM_PER_KEY
+//#define TAPPING_TERM_PER_KEY
 
 // Apply the modifier on keys that are tapped during a short hold of a modtap
 #define PERMISSIVE_HOLD
@@ -23,8 +23,9 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX 100
 
-#define FIRMWARE_VERSION u8"gqXJ4/XLgzg"
+#define FIRMWARE_VERSION u8"gqXJ4/gEdpq"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
 #define RGB_MATRIX_STARTUP_SPD 60
+

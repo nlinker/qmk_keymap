@@ -11,5 +11,5 @@
 *.log
 
 /optozorax/
-/oryx_download/
+/oryx_generated/
 /cmake-build-debug/

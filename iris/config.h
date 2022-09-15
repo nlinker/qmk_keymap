@@ -4,7 +4,7 @@
 #define EE_HANDS
 // #define NO_DEBUG
 // #define NO_PRINT
-#define BACKLIGHT_BREATHING
+// #define BACKLIGHT_BREATHING
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT

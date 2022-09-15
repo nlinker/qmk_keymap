@@ -3,7 +3,7 @@
 Derived from configuration in 
 [Oryx](https://configure.zsa.io/moonlander/layouts/gqXJ4/latest/0)
 
-This layout uses 56 keys only and fits (approximately) in Iris rev4 keyboard.
+This layout uses 56 keys only and fits to Iris rev4 keyboard.
 
 <img src="img/0_colemak.png" width="512">
 <img src="img/1_russian.png" width="512">
