@@ -10,6 +10,8 @@ enum iris_layers {
   _NAV,
   _SYM,
   _NUM,
+  _QWERTY,
+  _PLOVER,
 };
 
 enum custom_keycodes {
@@ -19,6 +21,8 @@ enum custom_keycodes {
   ST_M_0,
   ST_M_1,
   ST_M_2,
+  ST_M_3,
+  ST_M_4,
 };
 
 
@@ -105,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, ST_M_0,  KC_LABK, KC_LCBR, KC_LPRN, KC_LBRC,                            ST_M_2,  KC_COLN, KC_SCLN, KC_PIPE, KC_PLUS, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, ST_M_1,  KC_RABK, KC_RCBR, KC_RPRN, KC_RBRC, _______,          _______, A_BUFF2, KC_TILD, KC_COMM, KC_DOT,  KC_QUES, XXXXXXX,
+     _______, XXXXXXX, ST_M_0,  ST_M_1,  ST_M_2,  ST_M_3,  _______,          _______, A_BUFF2, KC_TILD, KC_COMM, KC_DOT,  KC_QUES, XXXXXXX,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -213,17 +217,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
     case ST_M_0:
       if (record->event.pressed) {
-        SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_LSFT(SS_TAP(X_DOT)) SS_DELAY(100) SS_TAP(X_LEFT));
 
       }
       break;
     case ST_M_1:
       if (record->event.pressed) {
-        SEND_STRING(SS_LSFT(SS_TAP(X_DOT)) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(100) SS_TAP(X_LEFT));
 
       }
       break;
     case ST_M_2:
+      if (record->event.pressed) {
+      SEND_STRING(SS_LSFT(SS_TAP(X_0)) SS_DELAY(100) SS_TAP(X_LEFT));
+
+      }
+      break;
+    case ST_M_3:
+      if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_RBRACKET) SS_DELAY(100) SS_TAP(X_LEFT));
+
+      }
+      break;
+    case ST_M_4:
       if (record->event.pressed) {
         SEND_STRING(SS_LSFT(SS_TAP(X_SCOLON)) SS_DELAY(100) SS_LSFT(SS_TAP(X_SCOLON)));
 
