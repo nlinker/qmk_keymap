@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     KC_TRANSPARENT, KC_MS_WH_UP,    LCTL(KC_W),     KC_MS_UP,       KC_PSCREEN,     KC_MS_BTN2,     KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_INSERT,      KC_HOME,        KC_UP,          KC_END,         KC_PGUP,        KC_F12,
     KC_TRANSPARENT, KC_MS_WH_DOWN,  KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_MS_BTN1,     KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_PGDOWN,      KC_CAPSLOCK,
-    KC_LGUI,        KC_NO,          MO(3),          KC_LALT,        KC_LCTRL,       KC_APPLICATION,                                                                 LCTL(LSFT(KC_Z)),TD(DANCE_1),   TD(DANCE_2),    TD(DANCE_3),    LCTL(KC_Z),     CAPS_WORD,
+    KC_LGUI,        KC_NO,          MO(3),          KC_LALT,        KC_LCTRL,       KC_APPLICATION,                                                                 KC_NO,          TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    LCTL(KC_Z),     CAPS_WORD,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
