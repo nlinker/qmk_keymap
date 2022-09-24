@@ -258,25 +258,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ST_MACRO_0:
       if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_DOT)) SS_DELAY(100) SS_TAP(X_LEFT));
+      SEND_STRING(">" SS_TAP(X_LEFT));
 
       }
       break;
     case ST_MACRO_1:
       if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(100) SS_TAP(X_LEFT));
+      SEND_STRING("}" SS_TAP(X_LEFT));
 
       }
       break;
     case ST_MACRO_2:
       if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_0)) SS_DELAY(100) SS_TAP(X_LEFT));
+      SEND_STRING(")" SS_TAP(X_LEFT));
 
     }
     break;
     case ST_MACRO_3:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_RBRACKET) SS_DELAY(100) SS_TAP(X_LEFT));
+      SEND_STRING("]" SS_TAP(X_LEFT));
 
     }
     break;
@@ -288,7 +288,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
-      SEND_STRING("::<>()" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+      SEND_STRING("::<>" SS_TAP(X_LEFT));
 
     }
     break;
