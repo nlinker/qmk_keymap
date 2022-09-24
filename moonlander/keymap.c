@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_SYM] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_TRANSPARENT,                 KC_TRANSPARENT, KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_BSLASH,      KC_MINUS,       KC_PLUS,
-    KC_TRANSPARENT, KC_EQUAL,       KC_LABK,        KC_LCBR,        KC_LPRN,        KC_LBRACKET,    KC_TRANSPARENT,                 KC_TRANSPARENT, ST_MACRO_4,     KC_COLN,        KC_SCOLON,      KC_PIPE,        KC_DQUO,        KC_QUOTE,
+    KC_TRANSPARENT, KC_PIPE,        KC_LABK,        KC_LCBR,        KC_LPRN,        KC_LBRACKET,    KC_TRANSPARENT,                 KC_TRANSPARENT, ST_MACRO_4,     KC_COLN,        KC_SCOLON,      KC_EQUAL,       KC_DQUO,        KC_QUOTE,
     KC_TRANSPARENT, KC_SLASH,       ST_MACRO_0,     ST_MACRO_1,     ST_MACRO_2,     ST_MACRO_3,                                                     ST_MACRO_5,     KC_TILD,        KC_COMMA,       KC_DOT,         KC_QUES,        KC_CAPSLOCK,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -282,7 +282,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_4:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_SCOLON)) SS_DELAY(100) SS_LSFT(SS_TAP(X_SCOLON)));
+      SEND_STRING("::");
 
     }
     break;
