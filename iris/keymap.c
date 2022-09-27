@@ -2,7 +2,25 @@
 
 #include "keymap_russian.h"
 #include "process_key_override.h"
-#include "print.h"
+#include "process_combo.h"
+
+#define KC_MAC_UNDO LGUI(KC_Z)
+#define KC_MAC_CUT LGUI(KC_X)
+#define KC_MAC_COPY LGUI(KC_C)
+#define KC_MAC_PASTE LGUI(KC_V)
+#define KC_PC_UNDO LCTL(KC_Z)
+#define KC_PC_CUT LCTL(KC_X)
+#define KC_PC_COPY LCTL(KC_C)
+#define KC_PC_PASTE LCTL(KC_V)
+#define ES_LESS_MAC KC_GRAVE
+#define ES_GRTR_MAC LSFT(KC_GRAVE)
+#define ES_BSLS_MAC ALGR(KC_6)
+#define NO_PIPE_ALT KC_GRAVE
+#define NO_BSLS_ALT KC_EQUAL
+#define LSA_T(kc) MT(MOD_LSFT | MOD_LALT, kc)
+#define BP_NDSH_MAC ALGR(KC_8)
+#define SE_SECT_MAC ALGR(KC_6)
+#define MOON_LED_LEVEL LED_LEVEL
 
 enum iris_layers {
   _COLEMAK,
@@ -10,6 +28,7 @@ enum iris_layers {
   _NAV,
   _SYM,
   _NUM,
+    _MOUSE,
   _QWERTY,
   _PLOVER,
 };
@@ -23,14 +42,13 @@ enum custom_keycodes {
   ST_M_2,
   ST_M_3,
   ST_M_4,
+  ST_M_5,
 };
 
 
 enum tap_dance_codes {
   DANCE_0,
   DANCE_1,
-  DANCE_2,
-  DANCE_3,
 };
 
 #define L_RUS  TG(_RUSSIAN)
@@ -38,22 +56,21 @@ enum tap_dance_codes {
 #define L_SYM  MO(_SYM)
 #define L_NUM  TG(_NUM)
 
-#define L_LSYM  LT(3, KC_X)
+#define L_LSYM  LT(3,KC_A)
 #define M_LALT  MT(MOD_LALT, KC_C)
 #define M_LCTL  MT(MOD_LCTL, KC_D)
 
 #define M_RCTL  MT(MOD_RCTL, KC_H)
 #define M_RALT  MT(MOD_LALT, KC_COMMA)
-#define L_RSYM  LT(3, KC_DOT)
+#define L_RSYM  LT(3,KC_O)
 
 #define A_SEL   LCTL(KC_W)
-#define A_BUFF1 TD(DANCE_1)
-#define A_BUFF2 TD(DANCE_2)
-#define A_BUFF3 TD(DANCE_3)
+#define A_UNDO  LCTL(KC_Z)
+#define A_COPY  LCTL(KC_C)
 #define A_UNDO  LCTL(KC_Z)
 
 #define CAPSWD  CAPS_WORD
-#define RU_TDSH  TD(DANCE_0)
+#define RU_TDSH TD(DANCE_0)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -65,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TAB,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                               KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_DQUO,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LGUI, KC_Z,    L_LSYM,  M_LALT,  M_LCTL,  KC_V,    L_RUS,            KC_BSPC, KC_K,    M_RCTL,  M_RALT,  L_RSYM,  KC_SLSH, KC_COLN,
+     KC_LGUI, KC_Z,    KC_X,    M_LALT,  M_LCTL,  KC_V,    L_RUS,            KC_BSPC, KC_K,    M_RCTL,  M_RALT,  L_RSYM,  KC_SLSH, KC_COLN,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LSFT, KC_SPC,  L_LNAV,                    L_RNAV,   KC_ENT,  KC_RSFT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘

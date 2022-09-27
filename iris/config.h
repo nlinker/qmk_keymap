@@ -28,3 +28,6 @@
 
 #define LAYER_STATE_16BIT
 #define RGB_MATRIX_STARTUP_SPD 60
+
+#define COMBO_COUNT 2
+#define COMBO_TERM 40
