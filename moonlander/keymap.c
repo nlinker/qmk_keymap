@@ -52,10 +52,10 @@ enum tap_dance_codes {
   DANCE_0,
 };
 
-#define L_RUS  TG(1)
-#define L_NAV  TT(2)
-#define L_SYM  MO(3)
-#define L_NUM  TG(4)
+#define L_RUS  TG(_RUSSIAN)
+#define L_NAV  MO(_NAV)
+#define L_SYM  MO(_SYM)
+#define L_NUM  TG(_NUM)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_moonlander(
@@ -172,8 +172,8 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case LT(3,KC_X):
-    case LT(3,KC_DOT):
+    case LT(4,KC_A):
+    case LT(4,KC_O):
       return TAPPING_TERM + 50;
     default:
       return TAPPING_TERM;
