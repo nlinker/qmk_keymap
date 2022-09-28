@@ -67,9 +67,9 @@ enum tap_dance_codes {
 #define LR_LSYM  LT(_SYM, RU_EF)
 #define MR_LALT  MT(MOD_LALT, RU_ES)
 #define MR_LCTL  MT(MOD_LCTL, RU_EM)
-#define MR_RCTL  TD(DANCE_0)
+#define MR_RCTL  MT(MOD_RCTL, RU_SOFT)
 #define MR_RALT  MT(MOD_LALT, RU_BE)
-#define LR_RSYM  LT(_SYM,KC_O)
+#define LR_RSYM  LT(_SYM, RU_ZHE)
 
 #define A_INFO  LCTL(KC_Q)
 #define A_SEL   LCTL(KC_W)
@@ -88,13 +88,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    A_COPY,
+     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    CAPSWD,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_GRV,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                               KC_J,    KC_L,    KC_U,    KC_Y,    KC_UNDS, CAPSWD,
+     KC_GRV,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                               KC_J,    KC_L,    KC_U,    KC_Y,    KC_UNDS, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                               KC_M,    KC_N,    KC_E,    KC_I,    L_RSYM,  KC_DQUO,
+     KC_TAB,  L_LSYM,  KC_R,    KC_S,    KC_T,    KC_G,                               KC_M,    KC_N,    KC_E,    KC_I,    L_RSYM,  A_PAST,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LGUI, KC_Z,    KC_X,    M_LALT,  M_LCTL,  KC_V,    KC_DEL,           KC_BSPC, KC_K,    M_RCTL,  M_RALT,  KC_DOT,  KC_SLSH, A_PAST,
+     A_ATAB,  KC_Z,    KC_X,    M_LALT,  M_LCTL,  KC_V,    KC_DEL,           KC_BSPC, KC_K,    M_RCTL,  M_RALT,  KC_DOT,  KC_SLSH, A_COPY,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LSFT, L_LNAV,  KC_SPC,                    KC_ENT,  L_RNAV,  KC_RSFT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -103,13 +103,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RUSSIAN] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, KC_CAPS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      RU_YO,   RU_SHTI, RU_TSE,  RU_U,    RU_KA,   RU_IE,                              RU_EN,   RU_GHE,  RU_SHA,  RU_SHCH, RU_ZE,   RU_HA,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, LR_LSYM, RU_YERU, RU_VE,   RU_A,    RU_PE,                              RU_ER,   RU_O,    RU_EL,   RU_DE,   RU_ZHE,  RU_E,
+     _______, LR_LSYM, RU_YERU, RU_VE,   RU_A,    RU_PE,                              RU_ER,   RU_O,    RU_EL,   RU_DE,   LR_RSYM, RU_E,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, RU_YA,   RU_CHE,  MR_LALT, MR_RCTL, RU_I,    _______,          _______, RU_TE,   MR_RCTL, MR_RALT, RU_YU,   RU_DOT,  _______,
+     _______, RU_YA,   RU_CHE,  MR_LALT, MR_RCTL, RU_I,    _______,          _______, RU_TE,   MR_RCTL, MR_RALT, RU_YU,   RU_DOT,  RU_HARD,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -118,13 +118,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAV] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, A_INFO,  A_SEL,   A_FIND,  KC_PSCR, A_LCBR,                             KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, KC_F11,
+     _______, A_INFO,  A_SEL,   A_FIND,  KC_PSCR, A_LCBR,                             KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, KC_F12,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, A_RCBR,                             KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_F12,
+     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, A_RCBR,                             KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     A_ATAB,  A_UNDO,  L_NUM,   KC_LALT, KC_LCTL, KC_APP,  _______,          _______, A_CUT,   KC_RCTL, KC_LALT, XXXXXXX, XXXXXXX, _______,
+     KC_LGUI, A_UNDO,  L_NUM,   KC_LALT, KC_LCTL, KC_APP,  _______,          _______, A_CUT,   KC_RCTL, KC_LALT, XXXXXXX, XXXXXXX, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -132,13 +132,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUM] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, XXXXXXX, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, KC_EQL,
+     _______, XXXXXXX, KC_HOME, KC_UP,   KC_END,  KC_PGUP,                            KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, KC_PCMM,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, L_SYM,   KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                            KC_P0,   KC_P4,   KC_P5,   KC_P6,   KC_PAST, KC_PCMM,
+     _______, L_SYM,   KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,                            KC_P0,   KC_P4,   KC_P5,   KC_P6,   KC_PAST, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, A_UNDO,  _______, KC_LALT, KC_LCTL, XXXXXXX, _______,          _______, XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PSLS, _______,
+     KC_LGUI, A_UNDO,  _______, KC_LALT, KC_LCTL, XXXXXXX, _______,          _______, KC_EQL,  KC_P1,   KC_P2,   KC_P3,   KC_PSLS, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   KC_PENT, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -146,31 +146,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYM] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_PLUS, KC_MINS, KC_CAPS,
+     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_PLUS, KC_MINS, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_SLSH, KC_LABK, KC_LCBR, KC_LPRN, KC_LBRC,                            ST_M_4,  KC_COLN, KC_SCLN, KC_EQL,  KC_PIPE, KC_QUOT,
+     _______, KC_TILD, KC_DQUO, KC_LCBR, KC_LPRN, KC_LBRC,                            ST_M_3,  KC_COLN, KC_SCLN, KC_EQL,  KC_PIPE, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_BSLS, ST_M_0,  ST_M_1,  ST_M_2,  ST_M_3,  _______,          _______, ST_M_5,  KC_TILD, KC_COMM, KC_DOT,  KC_QUES, _______,
+     _______, KC_BSLS, KC_QUOT, ST_M_0,  ST_M_1,  ST_M_2,  _______,          _______, ST_M_4,  KC_BSLS, KC_LABK, KC_RABK, KC_QUES, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-//  [_MOUSE] = LAYOUT(
-//  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-//     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-//  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-//     _______, _______, _______, KC_MS_U, _______, KC_WH_U,                            _______, _______, _______, _______, _______, _______,
-//  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-//     _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                            _______, _______, _______, _______, _______, _______,
-//  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-//     _______, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-//  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-//                                    _______, _______, _______,                   _______, _______, _______
-//                                // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
-//  ),
+  [_MOUSE] = LAYOUT(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, _______, _______, KC_MS_U, _______, KC_WH_U,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                    _______, _______, _______,                   _______, _______, _______
+                                // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+  ),
 };
 
 void keyboard_post_init_user(void) {
@@ -179,24 +179,22 @@ void keyboard_post_init_user(void) {
   rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT); // sets mode to Fast breathing without saving
 }
 
-const uint16_t PROGMEM combo_cut[] = {LCTL(KC_C), LCTL(KC_V), COMBO_END};
-const uint16_t PROGMEM combo_toggle_ru[] = {KC_DEL, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM combo_cut[] = { LCTL(KC_C), LCTL(KC_V), COMBO_END };
+const uint16_t PROGMEM combo_toggle_ru[] = { KC_DEL, KC_BSPC, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_cut, LCTL(KC_X)),
     COMBO(combo_toggle_ru, TG(_RUSSIAN)),
 };
 
-// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BACKSPACE, KC_DEL);
-const key_override_t override_double_quote = ko_make_basic(MOD_MASK_SHIFT, KC_DOUBLE_QUOTE, KC_QUOTE);
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
-const key_override_t override_colon = ko_make_basic(MOD_MASK_SHIFT, KC_COLON, KC_SEMICOLON);
+// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BACKSPACE, KC_DEL);
+// const key_override_t override_double_quote = ko_make_basic(MOD_MASK_SHIFT, KC_DOUBLE_QUOTE, KC_QUOTE);
+// const key_override_t override_colon = ko_make_basic(MOD_MASK_SHIFT, KC_COLON, KC_SEMICOLON);
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &override_double_quote,
     &override_underscore,
-    &override_colon,
     NULL
 };
 
@@ -268,37 +266,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ST_M_0:
       if (record->event.pressed) {
-      SEND_STRING(">" SS_TAP(X_LEFT));
+        SEND_STRING("}" SS_TAP(X_LEFT));
 
       }
       break;
     case ST_M_1:
       if (record->event.pressed) {
-      SEND_STRING("}" SS_TAP(X_LEFT));
+        SEND_STRING(")" SS_TAP(X_LEFT));
 
       }
       break;
     case ST_M_2:
       if (record->event.pressed) {
-      SEND_STRING(")" SS_TAP(X_LEFT));
+        SEND_STRING("]" SS_TAP(X_LEFT));
 
       }
       break;
     case ST_M_3:
       if (record->event.pressed) {
-      SEND_STRING("]" SS_TAP(X_LEFT));
+        SEND_STRING("::");
 
       }
       break;
     case ST_M_4:
       if (record->event.pressed) {
-      SEND_STRING("::");
-
-      }
-      break;
-    case ST_M_5:
-      if (record->event.pressed) {
-      SEND_STRING("::<>" SS_TAP(X_LEFT));
+        SEND_STRING("::<>" SS_TAP(X_LEFT));
 
       }
       break;
@@ -318,77 +310,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
-// region === Tap dances ===
-typedef struct {
-    bool is_press_action;
-    uint8_t step;
-} tap;
-
-enum {
-    SINGLE_TAP = 1,
-    SINGLE_HOLD,
-    DOUBLE_TAP,
-    DOUBLE_HOLD,
-    DOUBLE_SINGLE_TAP,
-    MORE_TAPS
-};
-
-static tap dance_state[1];
-
-uint8_t dance_step(qk_tap_dance_state_t *state);
-
-uint8_t dance_step(qk_tap_dance_state_t *state) {
-  if (state->count == 1) {
-    if (state->interrupted || !state->pressed) return SINGLE_TAP;
-    else return SINGLE_HOLD;
-  } else if (state->count == 2) {
-    if (state->interrupted) return DOUBLE_SINGLE_TAP;
-    else if (state->pressed) return DOUBLE_HOLD;
-    else return DOUBLE_TAP;
-  }
-  return MORE_TAPS;
-}
-
-
-void on_dance_0(qk_tap_dance_state_t *state, void *user_data);
-void dance_0_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_0_reset(qk_tap_dance_state_t *state, void *user_data);
-
-void on_dance_0(qk_tap_dance_state_t *state, void *user_data) {
-  if(state->count == 3) {
-    tap_code16(RU_SOFT);
-    tap_code16(RU_SOFT);
-    tap_code16(RU_SOFT);
-  }
-  if(state->count > 3) {
-    tap_code16(RU_SOFT);
-  }
-}
-
-void dance_0_finished(qk_tap_dance_state_t *state, void *user_data) {
-  dance_state[0].step = dance_step(state);
-  switch (dance_state[0].step) {
-    case SINGLE_TAP: register_code16(RU_SOFT); break;
-        case SINGLE_HOLD: register_code16(KC_RCTRL); break;
-        case DOUBLE_TAP: register_code16(RU_HARD); break;
-    case DOUBLE_SINGLE_TAP: tap_code16(RU_SOFT); register_code16(RU_SOFT);
-  }
-}
-
-void dance_0_reset(qk_tap_dance_state_t *state, void *user_data) {
-  wait_ms(10);
-  switch (dance_state[0].step) {
-    case SINGLE_TAP: unregister_code16(RU_SOFT); break;
-        case SINGLE_HOLD: unregister_code16(KC_RCTRL); break;
-        case DOUBLE_TAP: unregister_code16(RU_HARD); break;
-    case DOUBLE_SINGLE_TAP: unregister_code16(RU_SOFT); break;
-  }
-  dance_state[0].step = 0;
-}
-
-qk_tap_dance_action_t tap_dance_actions[] = {
-    [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
-};
-
-// endregion === Tap dances ===
