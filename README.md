@@ -6,12 +6,19 @@ Derived from configuration in
 This layout uses 56 keys only and fits to Iris rev4 keyboard.
 
 The most notable features are:
-- Colemak on the base layer, Qwerty is possible
+- Colemak-DH on the base layer, Qwerty is possible
+- Ctrl and Alt modifiers are on the bottom layers, Shift keys ars explicitly dedicated and never overloaded. 
+  The usage of the dedicated Shift keys greatly reduces the number of errors
 - Underscore is the default, `-` can be obtained either with Shift, or using Symbol layer 
 - Buffer operations spans through all the layers, Ctrl+X is implemented as the chord (Ctrl+C, Ctrl+V)
-- Navigation layer is accessible with the most ease and contains not only cursor moves, but Fns, word selections, modifiers and other helpers  
-- Symbol layer is accessible with home row pinkies hold, and is synchronized with the base layer; this means the base symbols correspond to the shifted ones on the Symbol layer, it simplifies the layout remembering
-- TODO shortcuts and symbols don't depend on the 
+- Navigation layer is accessible with the most ease and contains not only cursor moves, 
+  but Fns, word selections, modifiers and other helpers
+- Navigation layer modifier keys are _sticky_: left and right keys behave as usual modifiers, 
+  but simultaneous press toggles to the layer. Any press of the modifiers toggles them back
+- Symbol layer is accessible with home row pinkies hold, and is synchronized with the base layer; 
+  this means the base symbols correspond to the shifted ones on the Symbol layer, it simplifies the layout remembering
+
+- **TODO** shortcuts and symbols don't depend on the English/Russian system layout  
 
 <img src="img/0_colemak.png" width="768">
 <img src="img/1_russian.png" width="768">
