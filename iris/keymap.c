@@ -92,9 +92,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_GRV,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                               KC_J,    KC_L,    KC_U,    KC_Y,    KC_UNDS, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB,  L_LSYM,  KC_R,    KC_S,    KC_T,    KC_G,                               KC_M,    KC_N,    KC_E,    KC_I,    L_RSYM,  A_PAST,
+     KC_TAB,  L_LSYM,  KC_R,    KC_S,    KC_T,    KC_G,                               KC_M,    KC_N,    KC_E,    KC_I,    L_RSYM,  A_COPY,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     A_ATAB,  KC_Z,    KC_X,    M_LALT,  M_LCTL,  KC_V,    KC_DEL,           KC_BSPC, KC_K,    M_RCTL,  M_RALT,  KC_DOT,  KC_SLSH, A_COPY,
+     A_ATAB,  KC_Z,    KC_X,    M_LALT,  M_LCTL,  KC_V,    KC_DEL,           KC_BSPC, KC_K,    M_RCTL,  M_RALT,  KC_DOT,  KC_SLSH, A_PAST,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LSFT, L_LNAV,  KC_SPC,                    KC_ENT,  L_RNAV,  KC_RSFT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
