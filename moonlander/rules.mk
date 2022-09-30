@@ -14,4 +14,3 @@ MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
 SRC += matrix.c
-SRC += swapper.c
