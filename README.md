@@ -7,8 +7,10 @@ This layout uses 56 keys only and fits to Iris rev4 keyboard.
 
 The most notable features are:
 - Colemak-DH on the base layer, Qwerty is possible
-- Ctrl and Alt modifiers are on the bottom layers, Shift keys ars explicitly dedicated and never overloaded. 
-  The usage of the dedicated Shift keys greatly reduces the number of errors
+- Ctrl and Alt modifiers are on the bottom row; the bottom row is chosen for
+  Ctrl and Alt, because Colemak layout makes home row really hot, and it causes irritating mistypes
+- Shift keys are explicitly dedicated and never overloaded.
+  The usage of the dedicated Shift keys greatly reduces the number of errors.
 - Underscore is the default, `-` can be obtained either with Shift, or using Symbol layer 
 - Buffer operations spans through all the layers, Ctrl+X is implemented as the chord (Ctrl+C, Ctrl+V)
 - Navigation layer is accessible with the most ease and contains not only cursor moves, 
