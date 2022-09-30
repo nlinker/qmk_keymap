@@ -13,4 +13,4 @@ KEY_OVERRIDE_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
-SRC += matrix.c
+SRC = matrix.c
