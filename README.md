@@ -19,6 +19,7 @@ The most notable features are:
   but simultaneous press toggles to the layer. Any press of the modifiers toggles them back
 - Symbol layer is accessible with home row pinkies hold, and is synchronized with the base layer; 
   this means the base symbols correspond to the shifted ones on the Symbol layer, it simplifies the layout remembering
+- Switch Russian and Colemak layer is done with the combo `Space` + `Tab`
 
 - **TODO** shortcuts and symbols don't depend on the English/Russian system layout  
 
