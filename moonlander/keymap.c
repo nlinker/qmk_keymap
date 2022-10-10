@@ -198,7 +198,7 @@ void rgb_matrix_indicators_user(void) {
 }
 
 const uint16_t PROGMEM combo_cut[] = { LCTL(KC_C), LCTL(KC_V), COMBO_END };
-const uint16_t PROGMEM combo_toggle_ru[] = { KC_SPACE, L_LOCK, COMBO_END };
+const uint16_t PROGMEM combo_toggle_ru[] = { KC_LSHIFT, KC_RSHIFT, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_cut, LCTL(KC_X)),
