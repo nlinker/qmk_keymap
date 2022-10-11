@@ -50,9 +50,16 @@ enum custom_keycodes {
 #define L_RUS  TG(_RUSSIAN)
 #define L_NAV  MO(_NAV)
 #define L_SYM  MO(_SYM)
-#define L_NUM  TG(_NUM)
+#define L_NUM  MO(_NUM)
+#define L_MOU  MO(_MOUSE)
 
+#define CAPSWD  CAPS_WORD
 #define A_ATAB  LGUI(KC_TAB)
+#define A_RCTD  MT(MOD_RCTL, KC_DEL)
+#define A_LCTD  MT(MOD_LCTL, KC_DEL)
+
+#define L_LSYM  LT(_SYM, KC_A)
+#define L_RSYM  LT(_SYM, KC_O)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_moonlander(
@@ -218,8 +225,8 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case LT(4,KC_A):
-    case LT(4,KC_O):
+    case L_LSYM:
+    case L_RSYM:
       return TAPPING_TERM + 50;
     default:
       return TAPPING_TERM;

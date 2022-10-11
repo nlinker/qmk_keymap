@@ -14,3 +14,5 @@ MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
 BACKLIGHT_ENABLE = yes
+
+SRC += features/layer_lock.c
