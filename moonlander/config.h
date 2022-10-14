@@ -23,11 +23,13 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX 100
 
-#define FIRMWARE_VERSION u8"gqXJ4/QEWGg"
+#define FIRMWARE_VERSION u8"gqXJ4/OGVN3"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_16BIT
 #define RGB_MATRIX_STARTUP_SPD 60
 
-#define COMBO_COUNT 2
-#define COMBO_TERM 50
+#define COMBO_COUNT 8
+#define COMBO_TERM 32        // how quickly all combo keys must be pressed in succession to trigger
+#define COMBO_MUST_HOLD_MODS // if a combo triggers a modifier, only trigger when the combo is held
+#define COMBO_HOLD_TERM 175  // how long at least one of the combo keys must be held to trigger
