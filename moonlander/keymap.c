@@ -242,13 +242,14 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
-// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BACKSPACE, KC_DEL);
-// const key_override_t override_double_quote = ko_make_basic(MOD_MASK_SHIFT, KC_DOUBLE_QUOTE, KC_QUOTE);
-// const key_override_t override_colon = ko_make_basic(MOD_MASK_SHIFT, KC_COLON, KC_SEMICOLON);
+const key_override_t override_ru_comm = ko_make_basic(MOD_MASK_SHIFT, RU_COMM, KC_SLASH);
+const key_override_t override_ru_dot = ko_make_basic(MOD_MASK_SHIFT, RU_DOT, KC_UNDERSCORE);
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
     &override_underscore,
+    &override_ru_comm,
+    &override_ru_dot,
     NULL
 };
 
@@ -262,19 +263,26 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
+bool is_ru_system = false;
 bool is_ru_layer = false;
 bool is_nav_layer = false;
 bool is_num_layer = false;
 bool is_sym_layer = false;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  if (is_ru_layer != IS_LAYER_ON_STATE(state, _RUSSIAN)) {
-    is_ru_layer = !is_ru_layer;
+  if (is_ru_system != IS_LAYER_ON_STATE(state, _RUSSIAN)) {
+    is_ru_system = !is_ru_layer;
   }
-  is_nav_layer = IS_LAYER_ON_STATE(state, _NAV);
-  is_num_layer = IS_LAYER_ON_STATE(state, _NUM);
-  is_sym_layer = IS_LAYER_ON_STATE(state, _SYM);
+  is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
   return state;
+}
+
+void switch_system_language(void) {
+  // switch language, we assume CAPS_LOCK switches them
+  tap_code(KC_CAPS);
+  //  register_code(KC_LGUI);
+  //  tap_code(KC_SPACE);
+  //  unregister_code(KC_LGUI);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -282,33 +290,49 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  if (is_ru_layer) {
-    switch (keycode) {
-      case MO(_NAV):
-      case MO(_NUM):
-//      case LR_LSYM:
-//      case LR_RSYM:
-        // temporary switch language
+  if (is_ru_system && is_ru_layer) {
+    uint8_t r = record->event.key.row;
+    uint8_t c = record->event.key.col;
+    // TODO add buttons (3, 0) and (9, 6)
+    if ((1 <= r && r <= 3 && 1 <= c && c <= 5) || (7 <= r && r <= 9 && 1 <= c && c <= 5)) {
+      uint16_t new_kc = keymaps[_COLEMAK][r][c];
+
 #ifdef CONSOLE_ENABLE
-        uprintf("kc: 0x%04X, col: %3u, row: %3u, pressed: %u, nav:%d, num:%d, sym:%d\n",
-                keycode, record->event.key.col, record->event.key.row, record->event.pressed,
-                is_nav_layer, is_num_layer, is_sym_layer);
+      uprintf("this_kc:0x%04X, new_kc:0x%04X, row:%3u, col:%3u, pressed:%u, count:%d, ru_sys:%d, ru_lyr:%d \n",
+          keycode, new_kc, record->event.key.row, record->event.key.col, record->event.pressed,
+          record->tap.count, is_ru_system, is_ru_layer);
 #endif
-        register_code(KC_LGUI);
-        register_code(KC_SPACE);
-        unregister_code(KC_SPACE);
-        unregister_code(KC_LGUI);
-        break;
+
+      const uint8_t mods = get_mods() | get_oneshot_mods();
+      if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
+        if (record->event.pressed) {
+          register_code(new_kc);
+        } else {
+          unregister_code(new_kc);
+        }
+        return false;
+      }
     }
   }
 
   switch (keycode) {
+    case MO(_NAV):
+    case MO(_NUM):
+    case MO(_MOUSE):
+      if (is_ru_layer) {
+        switch_system_language();
+      }
+      break;
+    case LR_LSYM:
+    case LR_RSYM:
+      if (is_ru_layer && record->tap.count == 0) {
+        // the key is being held
+        switch_system_language();
+      }
+      break;
     case L_RUS:
       if (!record->event.pressed) {
-        register_code(KC_LGUI);
-        register_code(KC_SPACE);
-        unregister_code(KC_SPACE);
-        unregister_code(KC_LGUI);
+        switch_system_language();
       }
       break;
 
