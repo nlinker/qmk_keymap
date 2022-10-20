@@ -268,18 +268,20 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL
 };
 
-static bool is_ru_layer = false;
-static bool is_ru_layer_exactly = false;
 static bool is_shift_pressed = false;
+static layer_state_t current_layer_state = 0;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
-  is_ru_layer_exactly = state == (1 << _RUSSIAN);
+  current_layer_state = state;
   return state;
 }
 
-void switch_system_to_en(void) {
-  // Workaround, since Shift+Caps turns Caps on, not switches the language
+void switch_system_layout(uint8_t the_layer, bool is_shift_pressed) {
+  // Switch to the specific language in the host system,
+  // corresponding to the layer passed as the parameter.
+  // Now we assume there are only two languages, and the switch shortcut is the CapsLock.
+  //
+  // Here goes the workaround, since Shift+Caps turns Caps on, not switches the language
   if (is_shift_pressed) {
     unregister_code(KC_LSHIFT);
     tap_code(KC_CAPS);
@@ -289,41 +291,20 @@ void switch_system_to_en(void) {
   }
 }
 
-void switch_system_to_ru(void) {
-  // Workaround, since Shift+Caps turns Caps on, not switches the language
-  if (is_shift_pressed) {
-    unregister_code(KC_LSHIFT);
-    tap_code(KC_CAPS);
-    register_code(KC_LSHIFT);
-  } else {
-    tap_code(KC_CAPS);
-  }
-}
-
-bool process_ru_translation(uint16_t keycode, keyrecord_t *record) {
-  // todo encapsulate stuff from process_record_user
-  return false;
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_layer_lock(keycode, record, L_LOCK)) {
-    return false;
-  }
+bool process_kc_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t state, bool is_shift_pressed) {
+  // bool is_en_layer = IS_LAYER_ON_STATE(state, _COLEMAK);
+  bool is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
+  bool is_ru_layer_exactly = state == (1 << _RUSSIAN);
 
   if (is_ru_layer) {
     switch (keycode) {
-      case KC_LSFT:
-      case KC_RSFT:
-        is_shift_pressed = record->event.pressed;
-        break;
-
       case MO(_NAV):
       case MO(_NUM):
       case MO(_MOUSE):
         if (record->event.pressed) {
-          switch_system_to_en();
+          switch_system_layout(_COLEMAK, is_shift_pressed);
         } else {
-          switch_system_to_ru();
+          switch_system_layout(_RUSSIAN, is_shift_pressed);
         }
         break;
 
@@ -332,45 +313,61 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->tap.count == 0) {
           // the key is being held, this means Sym layer activated
           if (record->event.pressed) {
-            switch_system_to_en();
+            switch_system_layout(_COLEMAK, is_shift_pressed);
           } else {
-            switch_system_to_ru();
+            switch_system_layout(_RUSSIAN, is_shift_pressed);
           }
         }
         break;
     }
 
-    // we translate modifiers for Russian layer only
+    // we translate modifiers for Russian layer only and
     if (is_ru_layer_exactly) {
       uint8_t r = record->event.key.row;
       uint8_t c = record->event.key.col;
       if ((1 <= r && r <= 3 && 1 <= c && c <= 5) ||
           (7 <= r && r <= 9 && 1 <= c && c <= 5) ||
           (r == 3 && c == 0) ||
-          (r == 9 && c == 6)
-          ) {
-        uint16_t new_kc = keymaps[_COLEMAK][r][c];
+          (r == 9 && c == 6)) {
 
+        const uint16_t new_kc = keymaps[_COLEMAK][r][c];
         const uint8_t mods = get_mods() | get_oneshot_mods();
+
         if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
           if (record->event.pressed) {
-            register_code(new_kc);
+            register_code16(new_kc);
           } else {
-            unregister_code(new_kc);
+            unregister_code16(new_kc);
           }
           return false;
         }
       }
     }
   }
+  // continue processing
+  return true;
+}
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_layer_lock(keycode, record, L_LOCK)) {
+    return false;
+  }
+  if (!process_kc_conversion(keycode, record, current_layer_state, is_shift_pressed)) {
+    return false;
+  }
   switch (keycode) {
+    case KC_LSFT:
+    case KC_RSFT:
+      is_shift_pressed = record->event.pressed;
+      break;
+
     case L_RUS:
       if (!record->event.pressed) {
+        bool is_ru_layer = IS_LAYER_ON_STATE(current_layer_state, _RUSSIAN);
         if (is_ru_layer) {
-          switch_system_to_en();
+          switch_system_layout(_COLEMAK, is_shift_pressed);
         } else {
-          switch_system_to_ru();
+          switch_system_layout(_RUSSIAN, is_shift_pressed);
         }
       }
       break;
