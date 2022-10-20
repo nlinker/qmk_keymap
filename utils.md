@@ -44,3 +44,19 @@ Matrix for "LAYOUT_moonlander":
                     │  ││  ││  │    │  ││  ││  │
                     └──┘└──┘└──┘    └──┘└──┘└──┘
 ```
+
+### Console output
+
+Insert somewhere in `keymap.c`
+```c
+#ifdef CONSOLE_ENABLE
+    uprintf(
+        "this_kc:0x%04X, new_kc:0x%04X, row:%3u, col:%3u, pressed:%u, ru_layer:%d ru_layer_ex:%d shift:%d\n",
+        keycode, new_kc, r, c, record->event.pressed, is_ru_layer, is_ru_layer_exact, is_shift_pressed
+    );
+#endif
+```
+then open the console
+```bash
+$ qmk console
+```

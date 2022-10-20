@@ -78,23 +78,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RUSSIAN] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_CAPSLOCK,
     RU_YO,          RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,
-    KC_TRANSPARENT, LR_LSYM,        RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_ER,          RU_O,           RU_EL,          RU_DE,          LR_RSYM,        RU_E,
-    RU_HARD,        RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                                   RU_TE,          RU_SOFT,        RU_COMM,        RU_DOT,         RU_BE,          RU_YU,
+    KC_TRANSPARENT, LR_LSYM,        RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_ER,          RU_O,           RU_EL,          RU_DE,          LR_RSYM,        KC_TRANSPARENT,
+    RU_HARD,        RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                                   RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_DOT,         RU_E,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [_NAV] = LAYOUT_moonlander(
     KC_F12,         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          TG(6),                  TG(7),          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
-    KC_ESCAPE,      LCTL(KC_Q),     LCTL(KC_W),     KC_PSCREEN,     LCTL(KC_D),     LCTL(KC_Y),     KC_TRANSPARENT,         KC_TRANSPARENT, LCTL(KC_C),     KC_HOME,        KC_UP,          KC_END,         KC_PGUP,        KC_TRANSPARENT,
+    KC_ESCAPE,      LCTL(KC_Q),     LCTL(KC_W),     LCTL(KC_F),     LCTL(KC_D),     LCTL(KC_Y),     KC_TRANSPARENT,         KC_TRANSPARENT, LCTL(KC_C),     KC_HOME,        KC_UP,          KC_END,         KC_PGUP,        KC_TRANSPARENT,
     KC_TRANSPARENT, MO(5),          KC_LGUI,        KC_LALT,        KC_LCTRL,       MO(4),          KC_TRANSPARENT,         KC_TRANSPARENT, LCTL(KC_V),     KC_LEFT,        KC_DOWN,        KC_RIGHT,       MO(5),          KC_ENTER,
-    KC_TRANSPARENT, LCTL(KC_Z),     KC_NO,          KC_NO,          KC_LSHIFT,      KC_APPLICATION,                                         KC_INSERT,      KC_DELETE,      LCTL(KC_LBRACKET),LCTL(KC_RBRACKET),KC_PGDOWN,  L_LOCK,
+    KC_TRANSPARENT, LCTL(KC_Z),     KC_NO,          KC_PSCREEN,     KC_LSHIFT,      KC_APPLICATION,                                         KC_DELETE,      KC_INSERT,      LCTL(KC_LBRACKET),LCTL(KC_RBRACKET),KC_PGDOWN,  L_LOCK,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [_NUM] = LAYOUT_moonlander(
     KC_F12,         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     KC_ESCAPE,      KC_NO,          KC_7,           KC_8,           KC_9,           KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, MO(5),          KC_4,           KC_5,           KC_6,           KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_RCTRL,       KC_LALT,        KC_RGUI,        MO(5),          KC_ENTER,
+    KC_TRANSPARENT, MO(5),          KC_4,           KC_5,           KC_6,           MO(4),          KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_RCTRL,       KC_LALT,        KC_RGUI,        MO(5),          KC_ENTER,
     KC_TRANSPARENT, KC_0,           KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_RSHIFT,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, L_LOCK,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -142,13 +142,13 @@ void keyboard_post_init_user(void) {
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [0] = { {245,218,204}, {0,0,0}, {245,218,204}, {64,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {41,255,255}, {188,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {147,255,255}, {188,255,255}, {147,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {0,0,0}, {245,218,204}, {41,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {41,255,255}, {188,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {188,255,255}, {188,255,255}, {147,255,255}, {188,255,255}, {147,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
-    [1] = { {245,218,204}, {23,255,255}, {245,218,204}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {147,255,255}, {23,255,255}, {147,255,255}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {147,255,255}, {23,255,255}, {147,255,255}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
+    [1] = { {245,218,204}, {23,255,255}, {245,218,204}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {147,255,255}, {23,255,255}, {147,255,255}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {23,255,255}, {245,218,204}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {73,255,85}, {23,255,255}, {147,255,255}, {23,255,255}, {147,255,255}, {73,255,85}, {23,255,255}, {23,255,255}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
-    [2] = { {64,255,255}, {245,218,204}, {245,218,204}, {64,255,255}, {0,0,0}, {64,255,255}, {28,127,255}, {41,255,255}, {28,127,255}, {0,0,0}, {64,255,255}, {28,127,255}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {4,232,184}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {28,127,255}, {147,255,255}, {147,255,255}, {147,255,255}, {64,255,255}, {28,127,255}, {41,255,255}, {73,255,85}, {41,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {4,232,184}, {41,255,255}, {0,0,0}, {64,255,255}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {64,255,255}, {73,255,85}, {166,218,166}, {23,255,255}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {23,255,255}, {0,0,0}, {64,255,255}, {73,255,85}, {166,218,166}, {28,127,255}, {147,255,255}, {64,255,255}, {4,232,184}, {4,232,184}, {28,127,255}, {41,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
+    [2] = { {64,255,255}, {245,218,204}, {245,218,204}, {64,255,255}, {0,0,0}, {64,255,255}, {28,127,255}, {41,255,255}, {28,127,255}, {0,0,0}, {64,255,255}, {28,127,255}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {28,127,255}, {147,255,255}, {4,232,184}, {0,0,0}, {64,255,255}, {28,127,255}, {147,255,255}, {147,255,255}, {147,255,255}, {64,255,255}, {28,127,255}, {41,255,255}, {73,255,85}, {41,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {4,232,184}, {41,255,255}, {0,0,0}, {64,255,255}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {64,255,255}, {73,255,85}, {166,218,166}, {23,255,255}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {23,255,255}, {0,0,0}, {64,255,255}, {73,255,85}, {166,218,166}, {28,127,255}, {147,255,255}, {64,255,255}, {4,232,184}, {4,232,184}, {28,127,255}, {41,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
-    [3] = { {64,255,255}, {245,218,204}, {245,218,204}, {64,255,255}, {0,0,0}, {64,255,255}, {0,0,0}, {41,255,255}, {166,218,166}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {147,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {245,218,204}, {41,255,255}, {0,0,0}, {64,255,255}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {147,255,255}, {147,255,255}, {147,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
+    [3] = { {64,255,255}, {245,218,204}, {245,218,204}, {64,255,255}, {0,0,0}, {64,255,255}, {0,0,0}, {41,255,255}, {166,218,166}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {64,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {147,255,255}, {64,255,255}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {245,218,204}, {41,255,255}, {0,0,0}, {64,255,255}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {147,255,255}, {147,255,255}, {147,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
-    [4] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
+    [4] = { {0,0,0}, {0,0,0}, {245,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {245,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
     [5] = { {245,218,204}, {0,0,0}, {245,218,204}, {64,255,255}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {147,255,255}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {0,0,0}, {245,218,204}, {41,255,255}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {147,255,255}, {188,255,255}, {166,218,166}, {166,218,166}, {166,218,166}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
@@ -209,8 +209,19 @@ void rgb_matrix_indicators_user(void) {
   }
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case L_LSYM:
+    case L_RSYM:
+      return TAPPING_TERM + 50;
+    default:
+      return TAPPING_TERM;
+  }
+}
+
 const uint16_t PROGMEM combo_cut[] = { LCTL(KC_C), LCTL(KC_V), COMBO_END };
-const uint16_t PROGMEM combo_toggle_ru[] = { MO(2), MO(3), COMBO_END };
+const uint16_t PROGMEM combo_toggle_ru_1[] = { KC_T, KC_N, COMBO_END };
+const uint16_t PROGMEM combo_toggle_ru_2[] = { RU_A, RU_O, COMBO_END };
 const uint16_t PROGMEM combo_ts[] = { KC_T, KC_S, COMBO_END };
 const uint16_t PROGMEM combo_sr[] = { KC_S, KC_R, COMBO_END };
 const uint16_t PROGMEM combo_tsr[] = { KC_T, KC_S, KC_R, COMBO_END };
@@ -226,7 +237,8 @@ const uint16_t PROGMEM combo_ru_nei[] = { RU_O, RU_EL, RU_DE, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_cut, LCTL(KC_X)),
-    COMBO(combo_toggle_ru, TG(_RUSSIAN)),
+    COMBO(combo_toggle_ru_1, TG(_RUSSIAN)),
+    COMBO(combo_toggle_ru_2, TG(_RUSSIAN)),
     COMBO(combo_ts, KC_LCTL),
     COMBO(combo_sr, KC_LALT),
     COMBO(combo_tsr, LCTL(KC_LALT)),
@@ -242,47 +254,55 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
-const key_override_t override_ru_comm = ko_make_basic(MOD_MASK_SHIFT, RU_COMM, KC_SLASH);
-const key_override_t override_ru_dot = ko_make_basic(MOD_MASK_SHIFT, RU_DOT, KC_UNDERSCORE);
+const key_override_t override_question = ko_make_basic(MOD_MASK_SHIFT, KC_QUESTION, KC_SLASH);
+const key_override_t override_left_angle = ko_make_basic(MOD_MASK_SHIFT, KC_LABK, KC_COMMA);
+const key_override_t override_right_angle = ko_make_basic(MOD_MASK_SHIFT, KC_RABK, KC_DOT);
+// ko_make_with_layers requires bitmask of layers
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
     &override_underscore,
-    &override_ru_comm,
-    &override_ru_dot,
+    &override_question,
+    &override_left_angle,
+    &override_right_angle,
     NULL
 };
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case L_LSYM:
-    case L_RSYM:
-      return TAPPING_TERM + 50;
-    default:
-      return TAPPING_TERM;
-  }
-}
-
-bool is_ru_system = false;
-bool is_ru_layer = false;
-bool is_nav_layer = false;
-bool is_num_layer = false;
-bool is_sym_layer = false;
+static bool is_ru_layer = false;
+static bool is_ru_layer_exactly = false;
+static bool is_shift_pressed = false;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  if (is_ru_system != IS_LAYER_ON_STATE(state, _RUSSIAN)) {
-    is_ru_system = !is_ru_layer;
-  }
   is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
+  is_ru_layer_exactly = state == (1 << _RUSSIAN);
   return state;
 }
 
-void switch_system_language(void) {
-  // switch language, we assume CAPS_LOCK switches them
-  tap_code(KC_CAPS);
-  //  register_code(KC_LGUI);
-  //  tap_code(KC_SPACE);
-  //  unregister_code(KC_LGUI);
+void switch_system_to_en(void) {
+  // Workaround, since Shift+Caps turns Caps on, not switches the language
+  if (is_shift_pressed) {
+    unregister_code(KC_LSHIFT);
+    tap_code(KC_CAPS);
+    register_code(KC_LSHIFT);
+  } else {
+    tap_code(KC_CAPS);
+  }
+}
+
+void switch_system_to_ru(void) {
+  // Workaround, since Shift+Caps turns Caps on, not switches the language
+  if (is_shift_pressed) {
+    unregister_code(KC_LSHIFT);
+    tap_code(KC_CAPS);
+    register_code(KC_LSHIFT);
+  } else {
+    tap_code(KC_CAPS);
+  }
+}
+
+bool process_ru_translation(uint16_t keycode, keyrecord_t *record) {
+  // todo encapsulate stuff from process_record_user
+  return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -290,49 +310,68 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  if (is_ru_system && is_ru_layer) {
-    uint8_t r = record->event.key.row;
-    uint8_t c = record->event.key.col;
-    // TODO add buttons (3, 0) and (9, 6)
-    if ((1 <= r && r <= 3 && 1 <= c && c <= 5) || (7 <= r && r <= 9 && 1 <= c && c <= 5)) {
-      uint16_t new_kc = keymaps[_COLEMAK][r][c];
+  if (is_ru_layer) {
+    switch (keycode) {
+      case KC_LSFT:
+      case KC_RSFT:
+        is_shift_pressed = record->event.pressed;
+        break;
 
-#ifdef CONSOLE_ENABLE
-      uprintf("this_kc:0x%04X, new_kc:0x%04X, row:%3u, col:%3u, pressed:%u, count:%d, ru_sys:%d, ru_lyr:%d \n",
-          keycode, new_kc, record->event.key.row, record->event.key.col, record->event.pressed,
-          record->tap.count, is_ru_system, is_ru_layer);
-#endif
-
-      const uint8_t mods = get_mods() | get_oneshot_mods();
-      if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
+      case MO(_NAV):
+      case MO(_NUM):
+      case MO(_MOUSE):
         if (record->event.pressed) {
-          register_code(new_kc);
+          switch_system_to_en();
         } else {
-          unregister_code(new_kc);
+          switch_system_to_ru();
         }
-        return false;
+        break;
+
+      case LR_LSYM:
+      case LR_RSYM:
+        if (record->tap.count == 0) {
+          // the key is being held, this means Sym layer activated
+          if (record->event.pressed) {
+            switch_system_to_en();
+          } else {
+            switch_system_to_ru();
+          }
+        }
+        break;
+    }
+
+    // we translate modifiers for Russian layer only
+    if (is_ru_layer_exactly) {
+      uint8_t r = record->event.key.row;
+      uint8_t c = record->event.key.col;
+      if ((1 <= r && r <= 3 && 1 <= c && c <= 5) ||
+          (7 <= r && r <= 9 && 1 <= c && c <= 5) ||
+          (r == 3 && c == 0) ||
+          (r == 9 && c == 6)
+          ) {
+        uint16_t new_kc = keymaps[_COLEMAK][r][c];
+
+        const uint8_t mods = get_mods() | get_oneshot_mods();
+        if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
+          if (record->event.pressed) {
+            register_code(new_kc);
+          } else {
+            unregister_code(new_kc);
+          }
+          return false;
+        }
       }
     }
   }
 
   switch (keycode) {
-    case MO(_NAV):
-    case MO(_NUM):
-    case MO(_MOUSE):
-      if (is_ru_layer) {
-        switch_system_language();
-      }
-      break;
-    case LR_LSYM:
-    case LR_RSYM:
-      if (is_ru_layer && record->tap.count == 0) {
-        // the key is being held
-        switch_system_language();
-      }
-      break;
     case L_RUS:
       if (!record->event.pressed) {
-        switch_system_language();
+        if (is_ru_layer) {
+          switch_system_to_en();
+        } else {
+          switch_system_to_ru();
+        }
       }
       break;
 
