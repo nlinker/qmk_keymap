@@ -5,6 +5,10 @@
 #include "keymap_steno.h"
 #include "process_key_override.h"
 #include "process_combo.h"
+
+#include "my_keycodes.h"
+#include "my_layers.h"
+#include "features/lat_word.h"
 #include "features/layer_lock.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
@@ -25,27 +29,6 @@
 #define SE_SECT_MAC ALGR(KC_6)
 #define MOON_LED_LEVEL LED_LEVEL
 
-enum moon_layers {
-  _COLEMAK,
-  _RUSSIAN,
-  _NAV,
-  _NUM,
-  _MOUSE,
-  _SYM,
-  _QWERTY,
-  _PLOVER,
-};
-
-enum custom_keycodes {
-  RGB_SLD = ML_SAFE_RANGE,
-  L_LOCK,
-  ST_MACRO_0,
-  ST_MACRO_1,
-  ST_MACRO_2,
-  ST_MACRO_3,
-  ST_MACRO_4,
-};
-
 #define L_RUS  TG(_RUSSIAN)
 #define L_NAV  MO(_NAV)
 #define L_SYM  MO(_SYM)
@@ -65,7 +48,6 @@ enum custom_keycodes {
 #define LR_LSYM  LT(_SYM, RU_EF)
 #define LR_RSYM  LT(_SYM, RU_ZHE)
 
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, CAPS_WORD,
@@ -76,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(2),          KC_SPACE,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_BSPACE,      MO(3)
   ),
   [_RUSSIAN] = LAYOUT_moonlander(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_CAPSLOCK,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LAT_WORD,
     RU_YO,          RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,
     KC_TRANSPARENT, LR_LSYM,        RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_ER,          RU_O,           RU_EL,          RU_DE,          LR_RSYM,        KC_TRANSPARENT,
     RU_HARD,        RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                                   RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_DOT,         RU_E,
@@ -93,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUM] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          LCTL(KC_C),     KC_TRANSPARENT,         KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT,
-    KC_TRANSPARENT, MO(5),          KC_F5,          KC_F6,          KC_F7,          LCTL(KC_V),     KC_TRANSPARENT,         KC_TRANSPARENT, KC_1,           KC_RCTRL,       KC_LALT,        KC_RALT,        MO(5),          KC_TRANSPARENT,
-    A_ATAB,         KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,                                                 KC_2,           KC_RSHIFT,      KC_3,           KC_4,           KC_5,           L_LOCK,
+    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          LCTL(KC_C),     KC_TRANSPARENT,         KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,
+    KC_TRANSPARENT, MO(5),          KC_F5,          KC_F6,          KC_F7,          LCTL(KC_V),     KC_TRANSPARENT,         KC_TRANSPARENT, KC_0,           KC_RCTRL,       KC_LALT,        KC_RALT,        MO(5),          KC_TRANSPARENT,
+    A_ATAB,         KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,                                                 KC_6,           KC_RSHIFT,      KC_7,           KC_8,           KC_9,           L_LOCK,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -277,21 +259,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return state;
 }
 
-void switch_system_layout(uint8_t the_layer, bool is_shift_pressed) {
-  // Switch to the specific language in the host system,
-  // corresponding to the layer passed as the parameter.
-  // Now we assume there are only two languages, and the switch shortcut is the CapsLock.
-  //
-  // Here goes the workaround, since Shift+Caps turns Caps on, not switches the language
-  if (is_shift_pressed) {
-    unregister_code(KC_LSHIFT);
-    tap_code(KC_CAPS);
-    register_code(KC_LSHIFT);
-  } else {
-    tap_code(KC_CAPS);
-  }
-}
-
 bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t state, bool is_shift_pressed) {
   // bool is_en_layer = IS_LAYER_ON_STATE(state, _COLEMAK);
   bool is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
@@ -303,9 +270,9 @@ bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t 
       case MO(_NUM):
       case MO(_MOUSE):
         if (record->event.pressed) {
-          switch_system_layout(_COLEMAK, is_shift_pressed);
+          switch_system_layout(_COLEMAK);
         } else {
-          switch_system_layout(_RUSSIAN, is_shift_pressed);
+          switch_system_layout(_RUSSIAN);
         }
         break;
 
@@ -314,9 +281,9 @@ bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t 
         if (record->tap.count == 0) {
           // the key is being held, this means Sym layer activated
           if (record->event.pressed) {
-            switch_system_layout(_COLEMAK, is_shift_pressed);
+            switch_system_layout(_COLEMAK);
           } else {
-            switch_system_layout(_RUSSIAN, is_shift_pressed);
+            switch_system_layout(_RUSSIAN);
           }
         }
         break;
@@ -326,10 +293,11 @@ bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t 
     if (is_ru_layer_exactly) {
       uint8_t r = record->event.key.row;
       uint8_t c = record->event.key.col;
-      if ((1 <= r && r <= 3 && 1 <= c && c <= 5) ||
-          (7 <= r && r <= 9 && 1 <= c && c <= 5) ||
-          (r == 3 && c == 0) ||
-          (r == 9 && c == 6)) {
+      if (0 <= r && r < MATRIX_ROWS && 0 <= c && c < MATRIX_COLS) {
+//      if ((1 <= r && r <= 3 && 1 <= c && c <= 5) ||
+//          (7 <= r && r <= 9 && 1 <= c && c <= 5) ||
+//          (r == 3 && c == 0) ||
+//          (r == 9 && c == 6)) {
 
         const uint16_t new_kc = keymaps[_COLEMAK][r][c];
         const uint8_t mods = get_mods() | get_oneshot_mods();
@@ -353,9 +321,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_layer_lock(keycode, record, L_LOCK)) {
     return false;
   }
+  if (!process_lat_word(keycode, record, LAT_WORD)) {
+    return false;
+  }
   if (!process_shortcut_conv(keycode, record, current_layer_state, is_shift_pressed)) {
     return false;
   }
+
   switch (keycode) {
     case KC_LSFT:
     case KC_RSFT:
@@ -364,11 +336,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case L_RUS:
       if (!record->event.pressed) {
-        bool is_ru_layer = IS_LAYER_ON_STATE(current_layer_state, _RUSSIAN);
+        const bool is_ru_layer = IS_LAYER_ON_STATE(current_layer_state, _RUSSIAN);
         if (is_ru_layer) {
-          switch_system_layout(_COLEMAK, is_shift_pressed);
+          switch_system_layout(_COLEMAK);
         } else {
-          switch_system_layout(_RUSSIAN, is_shift_pressed);
+          switch_system_layout(_RUSSIAN);
         }
       }
       break;

@@ -13,4 +13,5 @@ MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
 SRC = matrix.c
+SRC += features/lat_word.c
 SRC += features/layer_lock.c
