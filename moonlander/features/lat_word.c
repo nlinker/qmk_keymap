@@ -2,8 +2,10 @@
 #include "my_layers.h"
 
 static bool is_lat_word_on = false;
+static uint8_t system_language_id = 0;
 
 bool process_lat_word(uint16_t keycode, const keyrecord_t *record, uint16_t lat_word_keycode) {
+
   // Nothing in this function acts on key release
   if (!record->event.pressed) {
     return true;
@@ -11,10 +13,16 @@ bool process_lat_word(uint16_t keycode, const keyrecord_t *record, uint16_t lat_
 
   // Handle the custom keycodes that go with this feature
   if (keycode == lat_word_keycode) {
-    switch_system_layout(_COLEMAK);
-    return false;
+    // layer_move(_COLEMAK);
+    // switch_system_layout(_COLEMAK);
+    // return false;
+    uprintf(
+        "this_kc:0x%04X, sys_lang:%d, is_lat_word_on:%d\n",
+        keycode, system_language_id, is_lat_word_on
+    );
   }
 
+  /*
   // If the behavior isn't enabled and the keypress isn't a keycode to
   // toggle the behavior, allow QMK to handle the keypress as usual
   if (!is_lat_word_on) {
@@ -37,12 +45,13 @@ bool process_lat_word(uint16_t keycode, const keyrecord_t *record, uint16_t lat_
   }
 
   if (should_terminate_lat_word(keycode, record)) {
+    layer_move(_RUSSIAN);
     switch_system_layout(_RUSSIAN);
   }
-
+*/
+  // continue processing as usual
   return true;
 }
-
 
 bool should_terminate_lat_word(uint16_t keycode, const keyrecord_t *record) {
   switch (keycode) {
@@ -65,14 +74,17 @@ bool should_terminate_lat_word(uint16_t keycode, const keyrecord_t *record) {
 }
 
 void switch_system_layout(uint8_t the_layer) {
-  // Here goes the workaround, since Shift+Caps turns Caps on, not switches the language
-  const uint8_t mods = get_mods() | get_oneshot_mods();
-  const bool is_shift_pressed = mods & MOD_MASK_SHIFT;
-  if (is_shift_pressed) {
-    unregister_code(KC_LSHIFT);
-    tap_code(KC_CAPS);
-    register_code(KC_LSHIFT);
-  } else {
-    tap_code(KC_CAPS);
+  if (system_language_id != the_layer) {
+    const uint8_t mods = get_mods() | get_oneshot_mods();
+    const bool is_shift_pressed = mods & MOD_MASK_SHIFT;
+    if (is_shift_pressed) {
+      // here goes the workaround, since Shift+Caps turns Caps on, not switches the language
+      unregister_code(KC_LSHIFT);
+      tap_code(KC_CAPS);
+      register_code(KC_LSHIFT);
+    } else {
+      tap_code(KC_CAPS);
+    }
+    system_language_id = the_layer;
   }
 }

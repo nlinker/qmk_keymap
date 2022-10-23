@@ -60,3 +60,4 @@ then open the console
 ```bash
 $ qmk console
 ```
+

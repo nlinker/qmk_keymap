@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
-#include "keymap_russian.h"
 #include "keymap_steno.h"
 #include "process_key_override.h"
 #include "process_combo.h"
@@ -10,6 +9,7 @@
 #include "my_layers.h"
 #include "features/lat_word.h"
 #include "features/layer_lock.h"
+#include "features/short_conv.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -28,25 +28,6 @@
 #define BP_NDSH_MAC ALGR(KC_8)
 #define SE_SECT_MAC ALGR(KC_6)
 #define MOON_LED_LEVEL LED_LEVEL
-
-#define L_RUS  TG(_RUSSIAN)
-#define L_NAV  MO(_NAV)
-#define L_SYM  MO(_SYM)
-#define L_NUM  MO(_NUM)
-#define L_MOU  MO(_MOUSE)
-
-#define CAPSWD  CAPS_WORD
-#define A_ATAB  LGUI(KC_TAB)
-#define A_RCTD  MT(MOD_RCTL, KC_DEL)
-#define A_LCTD  MT(MOD_LCTL, KC_DEL)
-
-// Colemak layer modifiers
-#define L_LSYM  LT(_SYM, KC_A)
-#define L_RSYM  LT(_SYM, KC_O)
-
-// Russian layer modifiers
-#define LR_LSYM  LT(_SYM, RU_EF)
-#define LR_RSYM  LT(_SYM, RU_ZHE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_moonlander(
@@ -75,9 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUM] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT,
-    KC_TRANSPARENT, MO(5),          KC_PSCREEN,     KC_F6,          KC_F7,          KC_APPLICATION, KC_TRANSPARENT,         KC_TRANSPARENT, KC_RALT,        KC_RSHIFT,      KC_RCTRL,       KC_LALT,        MO(5),          KC_TRANSPARENT,
-    A_ATAB,         KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,                                                 KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           L_LOCK,
+    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_NO,          KC_7,           KC_8,           KC_9,           KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, MO(5),          KC_PSCREEN,     KC_F6,          KC_F7,          KC_APPLICATION, KC_TRANSPARENT,         KC_TRANSPARENT, KC_RALT,        MT(MOD_RSFT, KC_4),MT(MOD_RCTL, KC_5),MT(MOD_LALT, KC_6),MO(5), KC_TRANSPARENT,
+    A_ATAB,         KC_F8,          KC_F9,          KC_F10,         KC_F11,         KC_F12,                                                 KC_0,           KC_1,           KC_2,           KC_3,           KC_SLASH,       L_LOCK,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -128,7 +109,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [2] = { {245,218,204}, {0,0,0}, {245,218,204}, {64,255,255}, {0,0,0}, {0,0,0}, {28,127,255}, {41,255,255}, {28,127,255}, {0,0,0}, {0,0,0}, {28,127,255}, {147,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {28,127,255}, {147,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {28,127,255}, {147,255,255}, {28,127,255}, {147,255,255}, {0,0,0}, {28,127,255}, {147,255,255}, {28,127,255}, {41,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {0,0,0}, {4,232,184}, {41,255,255}, {0,0,0}, {0,0,0}, {23,255,255}, {41,255,255}, {23,255,255}, {0,0,0}, {0,0,0}, {73,255,85}, {166,218,166}, {23,255,255}, {0,0,0}, {0,0,0}, {166,218,166}, {166,218,166}, {23,255,255}, {0,0,0}, {0,0,0}, {73,255,85}, {166,218,166}, {28,127,255}, {147,255,255}, {0,0,0}, {4,232,184}, {4,232,184}, {28,127,255}, {41,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
-    [3] = { {245,218,204}, {0,0,0}, {245,218,204}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {41,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {4,232,184}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {147,255,255}, {0,0,0}, {64,255,255}, {73,255,85}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {0,0,0}, {245,218,204}, {41,255,255}, {0,0,0}, {0,0,0}, {166,218,166}, {41,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {147,255,255}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
+    [3] = { {245,218,204}, {0,0,0}, {245,218,204}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {41,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {4,232,184}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {147,255,255}, {0,0,0}, {64,255,255}, {73,255,85}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {0,0,0}, {245,218,204}, {41,255,255}, {0,0,0}, {0,0,0}, {166,218,166}, {41,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {166,218,166}, {147,255,255}, {166,218,166}, {147,255,255}, {0,0,0}, {0,0,0}, {147,255,255}, {166,218,166}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
     [4] = { {245,218,204}, {0,0,0}, {245,218,204}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0}, {147,255,255}, {0,0,0}, {245,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {245,218,204}, {0,0,0}, {0,0,0} },
 
@@ -256,64 +237,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   current_layer_state = state;
   state = update_tri_layer_state(state, _NAV, _NUM, _MOUSE);
   return state;
-}
-
-bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t state) {
-  // bool is_en_layer = IS_LAYER_ON_STATE(state, _COLEMAK);
-  bool is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
-  bool is_ru_layer_exactly = state == (1 << _RUSSIAN);
-
-  if (is_ru_layer) {
-    switch (keycode) {
-      case MO(_NAV):
-      case MO(_NUM):
-      case MO(_MOUSE):
-        if (record->event.pressed) {
-          switch_system_layout(_COLEMAK);
-        } else {
-          switch_system_layout(_RUSSIAN);
-        }
-        break;
-
-      case LR_LSYM:
-      case LR_RSYM:
-        if (record->tap.count == 0) {
-          // the key is being held, this means Sym layer activated
-          if (record->event.pressed) {
-            switch_system_layout(_COLEMAK);
-          } else {
-            switch_system_layout(_RUSSIAN);
-          }
-        }
-        break;
-    }
-
-    // we translate modifiers for Russian layer only and
-    if (is_ru_layer_exactly) {
-      uint8_t r = record->event.key.row;
-      uint8_t c = record->event.key.col;
-      if (0 <= r && r < MATRIX_ROWS && 0 <= c && c < MATRIX_COLS) {
-//      if ((1 <= r && r <= 3 && 1 <= c && c <= 5) ||
-//          (7 <= r && r <= 9 && 1 <= c && c <= 5) ||
-//          (r == 3 && c == 0) ||
-//          (r == 9 && c == 6)) {
-
-        const uint16_t new_kc = keymaps[_COLEMAK][r][c];
-        const uint8_t mods = get_mods() | get_oneshot_mods();
-
-        if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
-          if (record->event.pressed) {
-            register_code16(new_kc);
-          } else {
-            unregister_code16(new_kc);
-          }
-          return false;
-        }
-      }
-    }
-  }
-  // continue processing
-  return true;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
