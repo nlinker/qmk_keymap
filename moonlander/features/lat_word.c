@@ -13,22 +13,33 @@ bool process_lat_word(uint16_t keycode, const keyrecord_t *record, uint16_t lat_
 
   // Handle the custom keycodes that go with this feature
   if (keycode == lat_word_keycode) {
-    // layer_move(_COLEMAK);
-    // switch_system_layout(_COLEMAK);
-    // return false;
+    is_lat_word_on = true;
     uprintf(
-        "this_kc:0x%04X, sys_lang:%d, is_lat_word_on:%d\n",
+        "enable lat_word, this_kc:0x%04X, sys_lang:%d, is_lat_word_on:%d\n",
         keycode, system_language_id, is_lat_word_on
     );
+    return false;
   }
 
-  /*
   // If the behavior isn't enabled and the keypress isn't a keycode to
   // toggle the behavior, allow QMK to handle the keypress as usual
   if (!is_lat_word_on) {
     return true;
   }
 
+  if (!should_preserve_lat_word(keycode, record)) {
+    is_lat_word_on = false;
+    uprintf(
+        "disable lat_word, this_kc:0x%04X, sys_lang:%d, is_lat_word_on:%d\n",
+        keycode, system_language_id, is_lat_word_on
+    );
+  }
+
+  // continue processing as usual
+  return true;
+}
+
+bool should_preserve_lat_word(uint16_t keycode, const keyrecord_t *record) {
   // Get the base keycode of a mod or layer tap key
   switch (keycode) {
     case QK_MOD_TAP ... QK_MOD_TAP_MAX:
@@ -43,33 +54,14 @@ bool process_lat_word(uint16_t keycode, const keyrecord_t *record, uint16_t lat_
     default:
       break;
   }
-
-  if (should_terminate_lat_word(keycode, record)) {
-    layer_move(_RUSSIAN);
-    switch_system_layout(_RUSSIAN);
-  }
-*/
-  // continue processing as usual
-  return true;
-}
-
-bool should_terminate_lat_word(uint16_t keycode, const keyrecord_t *record) {
   switch (keycode) {
-    // Keycodes which should not disable caps word mode
+    // Keycodes which should not disable lat word mode
     case KC_A ... KC_Z:
     case KC_1 ... KC_0:
     case KC_UNDS:
     case KC_BSPC:
-      return false;
-
-    default:
-      if (record->event.pressed) {
-        return true;
-      }
-      return false;
+      return true;
   }
-
-  // Should be unreachable
   return false;
 }
 

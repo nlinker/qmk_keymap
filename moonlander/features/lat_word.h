@@ -11,7 +11,7 @@ bool process_lat_word(uint16_t keycode, const keyrecord_t *record, uint16_t lat_
 /**
  * The symbols controlling the mode are defined in the function.
  */
-bool should_terminate_lat_word(uint16_t keycode, const keyrecord_t *record);
+bool should_preserve_lat_word(uint16_t keycode, const keyrecord_t *record);
 
 /**
  * Switch to the specific language in the host system, corresponding to the layer passed as the parameter.
