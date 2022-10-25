@@ -14,5 +14,5 @@ COMBO_ENABLE = yes
 
 BACKLIGHT_ENABLE = yes
 
+SRC += features/hotkey_conv.c
 SRC += features/layer_lock.c
-SRC += features/short_conv.c

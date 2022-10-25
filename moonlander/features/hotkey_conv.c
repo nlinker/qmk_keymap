@@ -20,7 +20,7 @@ void switch_system_layout(uint8_t the_layer) {
   }
 }
 
-bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t state) {
+bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t state) {
   // bool is_en_layer = IS_LAYER_ON_STATE(state, _COLEMAK);
   bool is_ru_layer = IS_LAYER_ON_STATE(state, _RUSSIAN);
   bool is_ru_layer_exactly = state == (1 << _RUSSIAN);

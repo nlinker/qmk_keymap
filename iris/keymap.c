@@ -223,7 +223,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_layer_lock(keycode, record, L_LOCK)) {
     return false;
   }
-  if (!process_shortcut_conv(keycode, record, current_layer_state)) {
+  if (!process_hotkey_conversion(keycode, record, current_layer_state)) {
     return false;
   }
 

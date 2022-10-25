@@ -13,5 +13,5 @@ MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 
 SRC = matrix.c
+SRC += features/hotkey_conv.c
 SRC += features/layer_lock.c
-SRC += features/short_conv.c

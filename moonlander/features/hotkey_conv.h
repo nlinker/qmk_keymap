@@ -13,7 +13,7 @@ extern "C" {
  * @param state layer state that was recorded by `layer_state_set_user(layer_state_t state)`
  * @return true, if the key processing should go as usual
  */
-bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t state);
+bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t state);
 
 /**
  * Switch to the specific language in the host system, corresponding to the layer passed as the parameter.
