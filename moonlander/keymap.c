@@ -7,8 +7,8 @@
 
 #include "my_keycodes.h"
 #include "my_layers.h"
+#include "features/hotkey_conv.h"
 #include "features/layer_lock.h"
-#include "features/short_conv.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
