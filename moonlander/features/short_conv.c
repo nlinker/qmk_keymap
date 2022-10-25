@@ -1,7 +1,24 @@
 #include "short_conv.h"
 #include "my_keycodes.h"
 #include "my_layers.h"
-#include "features/lat_word.h"
+
+static uint8_t system_language_id = 0;
+
+void switch_system_layout(uint8_t the_layer) {
+  if (system_language_id != the_layer) {
+    const uint8_t mods = get_mods() | get_oneshot_mods();
+    const bool is_shift_pressed = mods & MOD_MASK_SHIFT;
+    if (is_shift_pressed) {
+      // here goes the workaround, since Shift+Caps turns Caps on, not switches the language
+      unregister_code(KC_LSHIFT);
+      tap_code(KC_CAPS);
+      register_code(KC_LSHIFT);
+    } else {
+      tap_code(KC_CAPS);
+    }
+    system_language_id = the_layer;
+  }
+}
 
 bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t state) {
   // bool is_en_layer = IS_LAYER_ON_STATE(state, _COLEMAK);
@@ -55,4 +72,3 @@ bool process_shortcut_conv(uint16_t keycode, keyrecord_t *record, layer_state_t 
   // continue processing
   return true;
 }
-
