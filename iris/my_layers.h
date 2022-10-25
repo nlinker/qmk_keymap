@@ -10,8 +10,8 @@ enum my_layers {
     _NUM,
     _MOUSE,
     _SYM,
-    _QWERTY,
-    _PLOVER,
+//    _QWERTY,
+//    _PLOVER,
 };
 
 #define L_RUS  TG(_RUSSIAN)

@@ -7,7 +7,6 @@
 
 #include "my_keycodes.h"
 #include "my_layers.h"
-#include "features/lat_word.h"
 #include "features/layer_lock.h"
 #include "features/short_conv.h"
 
@@ -28,6 +27,8 @@
 #define BP_NDSH_MAC ALGR(KC_8)
 #define SE_SECT_MAC ALGR(KC_6)
 #define MOON_LED_LEVEL LED_LEVEL
+
+static layer_state_t current_layer_state = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_moonlander(
@@ -234,8 +235,6 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &override_right_angle,
     NULL
 };
-
-static layer_state_t current_layer_state = 0;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   current_layer_state = state;

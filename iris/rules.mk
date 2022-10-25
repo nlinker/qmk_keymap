@@ -4,7 +4,6 @@ ENCODER_ENABLE = no
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 ORYX_ENABLE = no
-TAP_DANCE_ENABLE = no
 STENO_ENABLE = no
 KEYBOARD_SHARED_EP = yes
 SPACE_CADET_ENABLE = no
@@ -16,3 +15,4 @@ COMBO_ENABLE = yes
 BACKLIGHT_ENABLE = yes
 
 SRC += features/layer_lock.c
+SRC += features/short_conv.c
