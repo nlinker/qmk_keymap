@@ -199,7 +199,6 @@ const uint16_t PROGMEM combo_ru_tsr[] = { RU_A, RU_VE, RU_YERU, COMBO_END };
 const uint16_t PROGMEM combo_ru_ne[] = { RU_O, RU_EL, COMBO_END };
 const uint16_t PROGMEM combo_ru_ei[] = { RU_EL, RU_DE, COMBO_END };
 const uint16_t PROGMEM combo_ru_nei[] = { RU_O, RU_EL, RU_DE, COMBO_END };
-const uint16_t PROGMEM combo_lat_word[] = { RU_EN, RU_ER, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
 //    COMBO(combo_toggle_en_1, TG(_RUSSIAN)),
@@ -219,7 +218,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_ru_ne, KC_RCTL),
     COMBO(combo_ru_ei, KC_LALT),
     COMBO(combo_ru_nei, RCTL(KC_LALT)),
-    COMBO(combo_lat_word, LAT_WORD),
 };
 
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
@@ -247,9 +245,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_layer_lock(keycode, record, L_LOCK)) {
-    return false;
-  }
-  if (!process_lat_word(keycode, record, LAT_WORD)) {
     return false;
   }
   if (!process_shortcut_conv(keycode, record, current_layer_state)) {
