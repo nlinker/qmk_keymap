@@ -13,3 +13,5 @@
 /optozorax/
 /oryx_generated/
 /cmake-build-debug/
+/sym/
+/.venv/
