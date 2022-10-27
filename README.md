@@ -42,7 +42,7 @@ Clone [`ZSA QMK fork`](https://github.com/zsa/qmk_firmware), and there `firmware
 <img src="img/1_russian.png" width="768">
 <img src="img/2_nav.png" width="768">
 <img src="img/3_num.png" width="768">
-<img src="img/4_sym.png" width="768">
-<img src="img/5_mouse.png" width="768">
+<img src="img/4_mouse.png" width="768">
+<img src="img/5_sym.png" width="768">
 <img src="img/6_qwerty.png" width="768">
 <img src="img/7_plover.png" width="768">
