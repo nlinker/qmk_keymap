@@ -200,12 +200,10 @@ const uint16_t PROGMEM combo_ru_tsr[] = { RU_A, RU_VE, RU_YERU, COMBO_END };
 const uint16_t PROGMEM combo_ru_ne[] = { RU_O, RU_EL, COMBO_END };
 const uint16_t PROGMEM combo_ru_ei[] = { RU_EL, RU_DE, COMBO_END };
 const uint16_t PROGMEM combo_ru_nei[] = { RU_O, RU_EL, RU_DE, COMBO_END };
+const uint16_t PROGMEM combo_mo2[] = { MO(3), KC_BSPACE, COMBO_END };
+const uint16_t PROGMEM combo_mo3[] = { MO(2), KC_SPACE, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
-//    COMBO(combo_toggle_en_1, TG(_RUSSIAN)),
-//    COMBO(combo_toggle_en_2, TG(_RUSSIAN)),
-//    COMBO(combo_toggle_ru_1, TG(_RUSSIAN)),
-//    COMBO(combo_toggle_ru_2, TG(_RUSSIAN)),
     COMBO(combo_cut, LCTL(KC_X)),
     COMBO(combo_ts, KC_LCTL),
     COMBO(combo_sr, KC_LALT),
@@ -219,6 +217,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_ru_ne, KC_RCTL),
     COMBO(combo_ru_ei, KC_LALT),
     COMBO(combo_ru_nei, RCTL(KC_LALT)),
+    COMBO(combo_mo2, MO(2)),
+    COMBO(combo_mo3, MO(3)),
 };
 
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
