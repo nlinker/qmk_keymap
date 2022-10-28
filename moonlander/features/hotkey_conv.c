@@ -60,9 +60,9 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
 
         if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
           if (record->event.pressed) {
-            register_code(new_kc);
+            register_code16(new_kc);
           } else {
-            unregister_code(new_kc);
+            unregister_code16(new_kc);
           }
           return false;
         }

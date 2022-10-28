@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_ESC,  _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, A_CT_Q,  A_CT_W,  A_CT_F,  A_CT_P,  A_CT_B,                             A_CT_C,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, XXXXXXX,
+     _______, A_CT_Q,  A_CT_W,  A_CT_F,  A_CT_P,  KC_LGUI,                            A_CT_C,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, L_SYM,   KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI,                            A_CT_V,  KC_LEFT, KC_DOWN, KC_RGHT, L_SYM,   _______,
+     _______, L_SYM,   KC_LALT, KC_LCTL, KC_LSFT, A_CT_G,                             A_CT_V,  KC_LEFT, KC_DOWN, KC_RGHT, L_SYM,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      A_ATAB,  A_CT_Z,  XXXXXXX, A_CT_E,  A_CT_D,  A_CT_Y,  _______,          _______, KC_INS,  KC_DEL,  A_LCBR,  A_RCBR,  KC_PGDN, L_LOCK,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_ESC,  _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              L_RUS,   KC_7,    KC_8,    KC_9,    _______, XXXXXXX,
+     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_RALT, KC_7,    KC_8,    KC_9,    _______, XXXXXXX,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, L_SYM,   KC_PSCR, KC_F6,   KC_F7,   KC_APP,                             KC_RALT, A_MT_4,  A_MT_5,  A_MT_6,  L_SYM,   _______,
+     _______, L_SYM,   KC_PSCR, KC_F11,  KC_F12,  KC_APP,                             L_RUS,   A_MT_4,  A_MT_5,  A_MT_6,  L_SYM,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     A_ATAB,  KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,          _______, KC_0,    KC_1,    KC_2,    KC_3,    _______, L_LOCK,
+     A_ATAB,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,          _______, KC_0,    KC_1,    KC_2,    KC_3,    _______, L_LOCK,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -177,12 +177,10 @@ const uint16_t PROGMEM combo_ru_tsr[] = { RU_A, RU_VE, RU_YERU, COMBO_END };
 const uint16_t PROGMEM combo_ru_ne[] = { RU_O, RU_EL, COMBO_END };
 const uint16_t PROGMEM combo_ru_ei[] = { RU_EL, RU_DE, COMBO_END };
 const uint16_t PROGMEM combo_ru_nei[] = { RU_O, RU_EL, RU_DE, COMBO_END };
+const uint16_t PROGMEM combo_mo2[] = { MO(3), KC_BSPACE, COMBO_END };
+const uint16_t PROGMEM combo_mo3[] = { MO(2), KC_SPACE, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
-//    COMBO(combo_toggle_en_1, TG(_RUSSIAN)),
-//    COMBO(combo_toggle_en_2, TG(_RUSSIAN)),
-//    COMBO(combo_toggle_ru_1, TG(_RUSSIAN)),
-//    COMBO(combo_toggle_ru_2, TG(_RUSSIAN)),
     COMBO(combo_cut, LCTL(KC_X)),
     COMBO(combo_ts, KC_LCTL),
     COMBO(combo_sr, KC_LALT),
@@ -196,6 +194,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_ru_ne, KC_RCTL),
     COMBO(combo_ru_ei, KC_LALT),
     COMBO(combo_ru_nei, RCTL(KC_LALT)),
+    COMBO(combo_mo2, MO(2)),
+    COMBO(combo_mo3, MO(3)),
 };
 
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);

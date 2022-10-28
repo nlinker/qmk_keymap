@@ -3,9 +3,9 @@
 /*
   #define USE_I2C
   #define NO_PRINT
+  #define BACKLIGHT_BREATHING
 */
 #define EE_HANDS
-//  #define BACKLIGHT_BREATHING
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT
@@ -30,7 +30,7 @@
 #define LAYER_STATE_16BIT
 #define RGB_MATRIX_STARTUP_SPD 60
 
-#define COMBO_COUNT 13
+#define COMBO_COUNT 15
 #define COMBO_TERM 50        // how quickly all combo keys must be pressed in succession to trigger
 #define COMBO_MUST_HOLD_MODS // if a combo triggers a modifier, only trigger when the combo is held
 #define COMBO_HOLD_TERM 175  // how long at least one of the combo keys must be held to trigger
