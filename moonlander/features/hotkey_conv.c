@@ -1,3 +1,4 @@
+#include "moonlander.h"
 #include "hotkey_conv.h"
 #include "my_keycodes.h"
 #include "my_layers.h"
@@ -15,6 +16,9 @@ void switch_system_layout(uint8_t the_layer) {
       register_code(KC_LSHIFT);
     } else {
       tap_code(KC_CAPS);
+    }
+    for (uint16_t i = 100; i > 0; i--) {
+      wait_ms(1);
     }
     system_language_id = the_layer;
   }
