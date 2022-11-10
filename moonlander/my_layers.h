@@ -5,12 +5,12 @@
 
 enum my_layers {
     _COLEMAK,
+    _COLEMAK_M,
     _RUSSIAN,
     _NAV,
     _NUM,
     _MOUSE,
     _SYM,
-    _QWERTY,
     _PLOVER,
 };
 
@@ -19,6 +19,7 @@ enum my_layers {
 #define L_NUM  MO(_NUM)
 #define L_MOU  MO(_MOUSE)
 #define L_SYM  MO(_SYM)
+#define L_PVR  MO(_PLOVER)
 
 // Colemak layer modifiers
 #define L_LSYM  LT(_SYM, KC_A)

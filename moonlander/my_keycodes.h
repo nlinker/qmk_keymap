@@ -13,4 +13,4 @@ enum my_keycodes {
 };
 
 #define CAPSWD  CAPS_WORD
-#define A_ATAB  LGUI(KC_TAB)
+#define A_ATAB  LALT(KC_TAB)

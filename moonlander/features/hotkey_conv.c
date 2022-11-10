@@ -17,9 +17,14 @@ void switch_system_layout(uint8_t the_layer) {
     } else {
       tap_code(KC_CAPS);
     }
-    for (uint16_t i = 100; i > 0; i--) {
-      wait_ms(1);
-    }
+    wait_ms(10);
+
+    // for Gui + Space shortcut
+    // register_code(KC_LGUI);
+    // register_code(KC_SPACE);
+    // wait_ms(1);
+    // unregister_code(KC_SPACE);
+    // unregister_code(KC_LGUI);
     system_language_id = the_layer;
   }
 }
