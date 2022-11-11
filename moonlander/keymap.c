@@ -65,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUM] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_LGUI,        KC_0,           KC_1,           KC_2,           KC_3,           KC_NO,
+    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_LGUI,        KC_7,           KC_8,           KC_9,           KC_TRANSPARENT, KC_NO,
     KC_TRANSPARENT, MO(6),          KC_PSCREEN,     KC_F11,         KC_F12,         KC_APPLICATION, KC_TRANSPARENT,         KC_TRANSPARENT, L_RUS,          MT(MOD_RSFT, KC_4),MT(MOD_RCTL, KC_5),MT(MOD_LALT, KC_6),MO(6), KC_TRANSPARENT,
-    A_ATAB,         KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,                                                 KC_NO,          KC_7,           KC_8,           KC_9,           KC_TRANSPARENT, L_LOCK,
+    A_ATAB,         KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,                                                 KC_NO,          KC_1,           KC_2,           KC_3,           KC_0,           L_LOCK,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
