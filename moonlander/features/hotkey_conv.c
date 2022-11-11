@@ -46,8 +46,8 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
         }
         break;
 
-      case LR_LSYM:
-      case LR_RSYM:
+      case L_LSYM_:
+      case L_RSYM_:
         if (record->tap.count == 0) {
           // the key is being held, this means Sym layer activated
           if (record->event.pressed) {
