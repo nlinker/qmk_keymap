@@ -61,3 +61,35 @@ then open the console
 $ qmk console
 ```
 
+### Combos
+
+... that were used to be used.
+```c
+const uint16_t PROGMEM combo_ts[] = { KC_T, KC_S, COMBO_END };
+const uint16_t PROGMEM combo_sr[] = { KC_S, KC_R, COMBO_END };
+const uint16_t PROGMEM combo_tsr[] = { KC_T, KC_S, KC_R, COMBO_END };
+const uint16_t PROGMEM combo_ne[] = { KC_N, KC_E, COMBO_END };
+const uint16_t PROGMEM combo_ei[] = { KC_E, KC_I, COMBO_END };
+const uint16_t PROGMEM combo_nei[] = { KC_N, KC_E, KC_I, COMBO_END };
+const uint16_t PROGMEM combo_ru_ts[] = { RU_A, RU_VE, COMBO_END };
+const uint16_t PROGMEM combo_ru_sr[] = { RU_VE, RU_YERU, COMBO_END };
+const uint16_t PROGMEM combo_ru_tsr[] = { RU_A, RU_VE, RU_YERU, COMBO_END };
+const uint16_t PROGMEM combo_ru_ne[] = { RU_O, RU_EL, COMBO_END };
+const uint16_t PROGMEM combo_ru_ei[] = { RU_EL, RU_DE, COMBO_END };
+const uint16_t PROGMEM combo_ru_nei[] = { RU_O, RU_EL, RU_DE, COMBO_END };
+
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(combo_ts, KC_LCTL),
+    COMBO(combo_sr, KC_LALT),
+    COMBO(combo_tsr, LCTL(KC_LALT)),
+    COMBO(combo_ne, KC_RCTL),
+    COMBO(combo_ei, KC_LALT),
+    COMBO(combo_nei, RCTL(KC_LALT)),
+    COMBO(combo_ru_ts, KC_LCTL),
+    COMBO(combo_ru_sr, KC_LALT),
+    COMBO(combo_ru_tsr, LCTL(KC_LALT)),
+    COMBO(combo_ru_ne, KC_RCTL),
+    COMBO(combo_ru_ei, KC_LALT),
+    COMBO(combo_ru_nei, RCTL(KC_LALT)),
+};
+```
