@@ -199,15 +199,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM combo_cut[] = { LCTL(KC_C), LCTL(KC_V), COMBO_END };
 const uint16_t PROGMEM combo_tn_mods[] = { MT(MOD_LSFT, KC_T), MT(MOD_RSFT, KC_N), COMBO_END };
 const uint16_t PROGMEM combo_tn_pure[] = { KC_T, KC_N, COMBO_END };
-//const uint16_t PROGMEM combo_mo2[] = { L_NUM, KC_BSPACE, COMBO_END };
-//const uint16_t PROGMEM combo_mo3[] = { L_NAV, KC_SPACE, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_cut, LCTL(KC_X)),
     COMBO(combo_tn_mods, TO(_COLEMAK_U)),
     COMBO(combo_tn_pure, TO(_COLEMAK)),
-//    COMBO(combo_mo2, L_NAV),
-//    COMBO(combo_mo3, L_NUM),
 };
 
 const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
@@ -227,7 +223,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   current_layer_state = state;
-  state = update_tri_layer_state(state, _NAV, _NUM, _MOUSE);
+  // state = update_tri_layer_state(state, _NAV, _NUM, _MOUSE);
   return state;
 }
 
