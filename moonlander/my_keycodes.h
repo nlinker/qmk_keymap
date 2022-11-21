@@ -2,7 +2,7 @@
 
 #include "moonlander.h"
 
-enum my_keycodes {
+enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
   L_LOCK,
   ST_MACRO_0,
@@ -12,5 +12,9 @@ enum my_keycodes {
   ST_MACRO_4,
 };
 
+enum tap_dance_codes {
+    DANCE_0,
+};
+
 #define CAPSWD  CAPS_WORD
-#define A_ATAB  LALT(KC_TAB)
+#define A_ATAB  TD(DANCE_0)
