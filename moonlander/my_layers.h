@@ -7,8 +7,7 @@ enum my_layers {
     _COLEMAK,
     _RUSSIAN,
     _NAV,
-    _FUN,
-    _NUM,
+    _FNN,
     _MOUSE,
     _COLEMAK_U,
     _SYM,
@@ -17,8 +16,7 @@ enum my_layers {
 
 #define L_RUS  TG(_RUSSIAN)
 #define L_NAV  MO(_NAV)
-#define L_FUN  LT(_FUN, KC_SPACE)
-#define L_NUM  MO(_NUM)
+#define L_FNN  LT(_FNN, KC_SPACE)
 #define L_MOU  LT(_MOUSE, KC_BSPACE)
 #define L_SYM  MO(_SYM)
 #define L_PLOV MO(_PLOVER)

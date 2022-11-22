@@ -37,7 +37,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
   if (is_ru_layer) {
     switch (keycode) {
       case MO(_NAV):
-      case MO(_NUM):
+      case MO(_FNN):
       case MO(_MOUSE):
         if (record->event.pressed) {
           switch_system_layout(_COLEMAK);

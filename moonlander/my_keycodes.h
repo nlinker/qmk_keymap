@@ -12,9 +12,5 @@ enum custom_keycodes {
   ST_MACRO_4,
 };
 
-enum tap_dance_codes {
-    DANCE_0,
-};
-
 #define CAPSWD  CAPS_WORD
 #define A_ATAB  LALT(KC_TAB)
