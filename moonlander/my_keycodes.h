@@ -17,4 +17,4 @@ enum tap_dance_codes {
 };
 
 #define CAPSWD  CAPS_WORD
-#define A_ATAB  TD(DANCE_0)
+#define A_ATAB  LALT(KC_TAB)
