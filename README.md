@@ -6,11 +6,8 @@ Derived from configuration in
 This layout uses 56 keys only and fits to Iris rev4 keyboard.
 
 The most notable features are:
-- Colemak-DH on the base layer, Qwerty is possible
-- Ctrl and Alt modifiers are on the home row; however they are implemented as combos on the base layer. The reason
-  is that the usual Mod Taps feature makes the keyboard feels like laggy and not immediately responsive. The feature
-  also requires to select and get used to the timings. I used Mod Taps on the NUM layer only, since digits are
-  typed with more care and slower than text. 
+- Colemak-DH on the base layer
+- Shift, Ctrl and Alt modifiers are on the home row. 
 - There are paired Shift keys, they are explicitly dedicated and never overloaded.
   The usage of the dedicated Shift keys greatly reduces the number of errors when typing text.
 - Underscore is the default, `-` can be obtained either with Shift, or using Symbol layer 
@@ -29,6 +26,17 @@ The most notable features are:
   - `RCtrl = О + Л`, `LAlt = Л + Д`, `RCtrl + LAlt = О + Л + Д`
 
 - Hotkeys and symbols don't depend on the English/Russian system layout, achieved with `hotkey_conv` module.
+
+## Layout Screenshots
+
+<img src="img/0_colemak.png" width="768">
+<img src="img/1_russian.png" width="768">
+<img src="img/2_nav.png" width="768">
+<img src="img/3_fnn.png" width="768">
+<img src="img/4_mouse.png" width="768">
+<img src="img/5_colemak_u.png" width="768">
+<img src="img/6_sym.png" width="768">
+<img src="img/7_plover.png" width="768">
 
 ## Installation
 
@@ -151,14 +159,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 ### Fixing the errors
 
 The most funny part goes here
-
-## Layout Screenshots
-
-<img src="img/0_colemak.png" width="768">
-<img src="img/1_russian.png" width="768">
-<img src="img/2_nav.png" width="768">
-<img src="img/3_num.png" width="768">
-<img src="img/4_mouse.png" width="768">
-<img src="img/5_sym.png" width="768">
-<img src="img/6_qwerty.png" width="768">
-<img src="img/7_plover.png" width="768">
