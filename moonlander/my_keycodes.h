@@ -5,6 +5,7 @@
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
   L_LOCK,
+  A_ATAB,
   ST_MACRO_0,
   ST_MACRO_1,
   ST_MACRO_2,
@@ -13,4 +14,3 @@ enum custom_keycodes {
 };
 
 #define CAPSWD  CAPS_WORD
-#define A_ATAB  LALT(KC_TAB)

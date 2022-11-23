@@ -29,6 +29,7 @@
 #define MOON_LED_LEVEL LED_LEVEL
 
 static layer_state_t current_layer_state = 0;
+static bool atab_tapped = false;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_moonlander(
@@ -58,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FNN] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_CAPSLOCK,    KC_7,           KC_8,           KC_9,           KC_PSCREEN,     KC_TRANSPARENT,         KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
-    KC_TRANSPARENT, L_SYM,          KC_4,           KC_5,           KC_6,           KC_APPLICATION, KC_TRANSPARENT,         KC_TRANSPARENT, L_RUS,          KC_F11,         KC_F12,         KC_NO,          L_SYM,          KC_TRANSPARENT,
+    KC_TRANSPARENT, L_SYM,          KC_4,           KC_5,           KC_6,           KC_APPLICATION, KC_TRANSPARENT,         KC_TRANSPARENT, L_RUS,          KC_NO,          KC_F11,         KC_F12,         L_SYM,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_0,           KC_1,           KC_2,           KC_3,           KC_NO,                                                  KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -110,7 +111,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [2] = { {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {0,0,0}, {28,127,255}, {41,255,255}, {28,127,255}, {0,0,0}, {0,0,0}, {28,127,255}, {147,255,255}, {28,127,255}, {0,0,0}, {0,0,0}, {28,127,255}, {147,255,255}, {28,127,255}, {0,0,0}, {0,0,0}, {28,127,255}, {147,255,255}, {28,127,255}, {147,255,255}, {0,0,0}, {28,127,255}, {147,255,255}, {28,127,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {147,255,255}, {41,255,255}, {28,127,255}, {0,0,0}, {0,0,0}, {73,255,85}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {73,255,85}, {64,255,255}, {28,127,255}, {147,255,255}, {0,0,0}, {4,232,184}, {4,232,184}, {28,127,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0} },
 
-    [3] = { {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {0,0,0}, {188,255,255}, {41,255,255}, {73,255,85}, {0,0,0}, {0,0,0}, {73,255,85}, {73,255,85}, {73,255,85}, {0,0,0}, {0,0,0}, {73,255,85}, {73,255,85}, {73,255,85}, {0,0,0}, {0,0,0}, {73,255,85}, {73,255,85}, {73,255,85}, {147,255,255}, {0,0,0}, {4,232,184}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {41,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {147,255,255}, {0,0,0}, {64,255,255}, {23,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0} },
+    [3] = { {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {0,0,0}, {188,255,255}, {41,255,255}, {73,255,85}, {0,0,0}, {0,0,0}, {73,255,85}, {73,255,85}, {73,255,85}, {0,0,0}, {0,0,0}, {73,255,85}, {73,255,85}, {73,255,85}, {0,0,0}, {0,0,0}, {73,255,85}, {73,255,85}, {73,255,85}, {147,255,255}, {0,0,0}, {4,232,184}, {188,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {41,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {64,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {64,255,255}, {147,255,255}, {0,0,0}, {64,255,255}, {23,255,255}, {64,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0} },
 
     [4] = { {245,218,204}, {0,0,0}, {0,0,0}, {64,255,255}, {0,0,0}, {0,0,0}, {245,218,204}, {245,218,204}, {0,0,0}, {0,0,0}, {0,0,0}, {245,218,204}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {245,218,204}, {4,232,184}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {23,255,255}, {23,255,255}, {4,232,184}, {0,0,0}, {0,0,0}, {0,0,0}, {4,232,184}, {0,0,0}, {147,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0} },
 
@@ -193,15 +194,14 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_tn_pure, TO(_COLEMAK)),
 };
 
-const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
+// ko_make_with_layers requires bitmask of layers
+//const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
 const key_override_t override_question = ko_make_basic(MOD_MASK_SHIFT, KC_QUESTION, KC_SLASH);
 const key_override_t override_left_angle = ko_make_basic(MOD_MASK_SHIFT, KC_LABK, KC_COMMA);
 const key_override_t override_right_angle = ko_make_basic(MOD_MASK_SHIFT, KC_RABK, KC_DOT);
-// ko_make_with_layers requires bitmask of layers
 
-// This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &override_underscore,
+    // &override_underscore,
     &override_question,
     &override_left_angle,
     &override_right_angle,
@@ -212,6 +212,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   current_layer_state = state;
   state = update_tri_layer_state(state, _NAV, _FNN, _MOUSE);
   return state;
+}
+
+static uint32_t idle_callback(uint32_t trigger_time, void* cb_arg) {
+  if (atab_tapped) {
+    atab_tapped = false;
+    unregister_code(KC_LGUI);
+  }
+  return 0;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -231,6 +239,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
           switch_system_layout(_RUSSIAN);
         }
+      }
+      break;
+    case A_ATAB:
+      if (record->event.pressed) {
+        if (!atab_tapped) {
+          register_code(KC_LGUI);
+        }
+        static deferred_token idle_token = INVALID_DEFERRED_TOKEN;
+        if (!extend_deferred_exec(idle_token, 300)) {
+          idle_token = defer_exec(300, idle_callback, NULL);
+        }
+        atab_tapped = true;
+        tap_code(KC_TAB);
       }
       break;
 
