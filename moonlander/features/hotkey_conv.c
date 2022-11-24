@@ -45,8 +45,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
         }
         break;
 
-      case LT(_SYM,KC_SPACE):
-      case LT(_SYM,KC_BSPACE):
+      case MO(_SYM):
         if (record->tap.count == 0) {
           // the key is being held, this means Sym layer activated
           if (record->event.pressed) {
@@ -59,7 +58,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
     }
 
 // TODO hangs if the home row pressed
-//    if (is_ru_layer_exactly) {
+    if (is_ru_layer_exactly) {
 //      uint8_t r = record->event.key.row;
 //      uint8_t c = record->event.key.col;
 //      if (0 <= r && r < MATRIX_ROWS && 0 <= c && c < MATRIX_COLS) {
@@ -74,7 +73,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
 //          return false;
 //        }
 //      }
-//    }
+    }
   }
   // continue processing
   return true;
