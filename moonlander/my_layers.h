@@ -9,7 +9,6 @@ enum my_layers {
     _NAV,
     _FNN,
     _MOUSE,
-    _COLEMAK_U,
     _SYM,
     _PLOVER,
 };

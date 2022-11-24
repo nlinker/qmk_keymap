@@ -93,3 +93,22 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_ru_nei, RCTL(KC_LALT)),
 };
 ```
+
+### Interpret double shift as Sym layer switch
+
+```c
+//    case KC_LSHIFT:
+//    case KC_RSHIFT:
+//      const uint8_t mods = get_mods() | get_oneshot_mods();
+//      if ((mods & MOD_MASK_SHIFT)) {
+//        
+//      }
+//
+//      if (record->event.pressed) {
+//        layer_on(_SYM);
+//      } else {
+//        layer_off(_SYM);
+//      } 
+//      break;
+//
+```
