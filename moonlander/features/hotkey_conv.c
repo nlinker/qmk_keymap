@@ -18,7 +18,6 @@ void switch_system_layout(uint8_t the_layer) {
       tap_code(KC_CAPS);
     }
     wait_ms(10);
-
     // for Gui + Space shortcut
     // register_code(KC_LGUI);
     // register_code(KC_SPACE);
@@ -63,10 +62,8 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
       uint8_t r = record->event.key.row;
       uint8_t c = record->event.key.col;
       if (0 <= r && r < MATRIX_ROWS && 0 <= c && c < MATRIX_COLS) {
-
         const uint16_t new_kc = keymaps[_COLEMAK][r][c];
         const uint8_t mods = get_mods() | get_oneshot_mods();
-
         if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
           if (record->event.pressed) {
             register_code16(new_kc);
