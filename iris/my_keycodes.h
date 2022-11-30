@@ -1,8 +1,11 @@
 #pragma once
 
-enum my_keycodes {
+//#include "moonlander.h"
+
+enum custom_keycodes {
     RGB_SLD = SAFE_RANGE,
     L_LOCK,
+    A_ATAB,
     ST_M_0,
     ST_M_1,
     ST_M_2,
@@ -11,7 +14,6 @@ enum my_keycodes {
 };
 
 #define CAPSWD  CAPS_WORD
-#define A_ATAB  LGUI(KC_TAB)
 
 #define A_CT_Q  LCTL(KC_Q)
 #define A_CT_W  LCTL(KC_W)
@@ -31,17 +33,23 @@ enum my_keycodes {
 #define A_CT_D  LCTL(KC_D)
 #define A_CT_V  LCTL(KC_V)
 
+#define A_CT_J  LCTL(KC_J)
+#define A_CT_L  LCTL(KC_L)
+#define A_CT_U  LCTL(KC_U)
+#define A_CT_Y  LCTL(KC_Y)
+
 #define A_CT_M  LCTL(KC_M)
 #define A_CT_N  LCTL(KC_N)
 #define A_CT_E  LCTL(KC_E)
 #define A_CT_I  LCTL(KC_I)
 #define A_CT_O  LCTL(KC_O)
 
-#define A_CT_Y  LCTL(KC_Y)
-#define A_SLSH  LCTL(KC_SLASH)
-#define A_RCBR  LCTL(KC_RBRACKET)
-#define A_LCBR  LCTL(KC_LBRACKET)
+#define A_CT_K  LCTL(KC_M)
+#define A_CT_H  LCTL(KC_N)
 
-#define A_MT_4  MT(MOD_RSFT, KC_4)
-#define A_MT_5  MT(MOD_RCTL, KC_5)
-#define A_MT_6  MT(MOD_LALT, KC_6)
+#define A_CT_UN  LCTL(KC_UNDS)
+#define A_CT_LA  LCTL(KC_E)
+#define A_CT_RA  LCTL(KC_I)
+#define A_CT_SL  LCTL(KC_SLASH)
+
+

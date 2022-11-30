@@ -17,7 +17,7 @@ void switch_system_layout(uint8_t the_layer) {
     } else {
       tap_code(KC_CAPS);
     }
-    wait_ms(10);
+    // wait_ms(10);
     // for Gui + Space shortcut
     // register_code(KC_LGUI);
     // register_code(KC_SPACE);

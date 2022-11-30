@@ -16,6 +16,13 @@ void switch_system_layout(uint8_t the_layer) {
     } else {
       tap_code(KC_CAPS);
     }
+    // wait_ms(10);
+    // for Gui + Space shortcut
+    // register_code(KC_LGUI);
+    // register_code(KC_SPACE);
+    // wait_ms(1);
+    // unregister_code(KC_SPACE);
+    // unregister_code(KC_LGUI);
     system_language_id = the_layer;
   }
 }
@@ -28,7 +35,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
   if (is_ru_layer) {
     switch (keycode) {
       case MO(_NAV):
-      case MO(_NUM):
+      case MO(_FNN):
       case MO(_MOUSE):
         if (record->event.pressed) {
           switch_system_layout(_COLEMAK);
@@ -37,8 +44,8 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
         }
         break;
 
-      case LR_LSYM:
-      case LR_RSYM:
+      case L_LSYM_:
+      case L_RSYM_:
         if (record->tap.count == 0) {
           // the key is being held, this means Sym layer activated
           if (record->event.pressed) {
@@ -50,23 +57,22 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
         break;
     }
 
+// TODO hangs if the home row pressed
     if (is_ru_layer_exactly) {
-      uint8_t r = record->event.key.row;
-      uint8_t c = record->event.key.col;
-      if (0 <= r && r < MATRIX_ROWS && 0 <= c && c < MATRIX_COLS) {
-
-        const uint16_t new_kc = keymaps[_COLEMAK][r][c];
-        const uint8_t mods = get_mods() | get_oneshot_mods();
-
-        if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
-          if (record->event.pressed) {
-            register_code16(new_kc);
-          } else {
-            unregister_code16(new_kc);
-          }
-          return false;
-        }
-      }
+//      uint8_t r = record->event.key.row;
+//      uint8_t c = record->event.key.col;
+//      if (0 <= r && r < MATRIX_ROWS && 0 <= c && c < MATRIX_COLS) {
+//        const uint16_t new_kc = keymaps[_COLEMAK][r][c];
+//        const uint8_t mods = get_mods() | get_oneshot_mods();
+//        if ((mods & MOD_MASK_CTRL) || (mods & MOD_MASK_ALT) || (mods & MOD_MASK_GUI)) {
+//          if (record->event.pressed) {
+//            register_code16(new_kc);
+//          } else {
+//            unregister_code16(new_kc);
+//          }
+//          return false;
+//        }
+//      }
     }
   }
   // continue processing
