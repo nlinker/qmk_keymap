@@ -13,7 +13,7 @@ enum custom_keycodes {
     ST_M_4,
 };
 
-#define CAPSWD  CAPS_WORD
+#define A_CAPSW  CAPS_WORD
 
 #define A_CT_Q  LCTL(KC_Q)
 #define A_CT_W  LCTL(KC_W)
