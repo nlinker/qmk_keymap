@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_CAPS,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_APP,  _______,          _______, XXXXXXX, L_RUS,   KC_F11,  KC_F12,  KC_LGUI, _______,
+     _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_APP,  _______,          _______, L_RUS,   KC_LGUI, KC_F11,  KC_F12,  XXXXXXX, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -170,13 +170,13 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 // ko_make_with_layers requires bitmask of layers
-//const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
+const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDERSCORE, KC_MINUS);
 const key_override_t override_question = ko_make_basic(MOD_MASK_SHIFT, KC_QUESTION, KC_SLASH);
 const key_override_t override_left_angle = ko_make_basic(MOD_MASK_SHIFT, KC_LABK, KC_COMMA);
 const key_override_t override_right_angle = ko_make_basic(MOD_MASK_SHIFT, KC_RABK, KC_DOT);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
-    // &override_underscore,
+    &override_underscore,
     &override_question,
     &override_left_angle,
     &override_right_angle,
