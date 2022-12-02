@@ -13,4 +13,4 @@ enum custom_keycodes {
   ST_MACRO_4,
 };
 
-#define CAPSWD  CAPS_WORD
+#define A_CAPSW CAPS_WORD
