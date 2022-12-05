@@ -101,9 +101,8 @@ combo_t key_combos[COMBO_COUNT] = {
 //    case KC_RSHIFT:
 //      const uint8_t mods = get_mods() | get_oneshot_mods();
 //      if ((mods & MOD_MASK_SHIFT)) {
-//        
+//        ...        
 //      }
-//
 //      if (record->event.pressed) {
 //        layer_on(_SYM);
 //      } else {
@@ -111,4 +110,12 @@ combo_t key_combos[COMBO_COUNT] = {
 //      } 
 //      break;
 //
+```
+
+### Monkeytype get word list
+
+```javascript
+import $ from 'jquery'
+message = $('#words > .word').map((_, it) => $(it).children().text()).get().join(" ")
+console.log(message)
 ```
