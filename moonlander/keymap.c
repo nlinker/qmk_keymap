@@ -174,15 +174,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM combo_cut[] = { LCTL(KC_C), LCTL(KC_V), COMBO_END };
 const uint16_t PROGMEM combo_fnn[] = { KC_SPACE, MO(_NAV), COMBO_END };
 const uint16_t PROGMEM combo_nav[] = { KC_BSPACE, MO(_FNN), COMBO_END };
-const uint16_t PROGMEM combo_ru_tab[] = { RU_HARD, L_LSYM_, COMBO_END };
-const uint16_t PROGMEM combo_ru_ent[] = { L_RSYM_, RU_E, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_cut, LCTL(KC_X)),       
     COMBO(combo_fnn, MO(_FNN)),
     COMBO(combo_nav, MO(_NAV)),
-    COMBO(combo_ru_tab, KC_TAB),
-    COMBO(combo_ru_ent, KC_ENT),
 };
 
 // ko_make_with_layers requires bitmask of layers
