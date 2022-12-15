@@ -14,8 +14,8 @@ enum my_layers {
 };
 
 #define L_RUS  TG(_RUSSIAN)
-#define L_NAV  LT(_NAV,KC_TAB)
-#define L_FNN  LT(_FNN,KC_ENTER)
+#define L_NAV  MO(_NAV)
+#define L_FNN  MO(_FNN)
 #define L_SYM  MO(_SYM)
 #define L_PLOV MO(_PLOVER)
 

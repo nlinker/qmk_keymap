@@ -119,3 +119,24 @@ import $ from 'jquery'
 message = $('#words > .word').map((_, it) => $(it).children().text()).get().join(" ")
 console.log(message)
 ```
+
+### Print binary representation with padding
+
+```c
+static layer_state_t cur_state = 0;
+
+static char cur_state_bin[33];
+static char new_state_bin[33];
+static char *padding = "..........................";
+
+layer_state_t layer_state_set_user(layer_state_t new_state) {
+  
+    itoa(cur_state, cur_state_bin, 2);
+    itoa(new_state, new_state_bin, 2);
+    int pad_len_cur = 8 - strlen(cur_state_bin) < 0? 0: 8 - strlen(cur_state_bin);
+    int pad_len_new = 8 - strlen(new_state_bin) < 0? 0: 8 - strlen(new_state_bin);
+    uprintf("cur_state: [%*.*s%s], new_state: [%*.*s%s] \n", 
+            pad_len_cur, pad_len_cur, padding, cur_state_bin,
+            pad_len_new, pad_len_new, padding, new_state_bin);
+}
+```

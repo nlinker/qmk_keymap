@@ -6,6 +6,13 @@
 extern "C" {
 #endif
 
+enum SwitchState {
+    SS_OFF,
+    SS_PENDING,
+    SS_ON,
+};
+
+extern enum SwitchState switch_state;
 /**
  *
  * @param keycode the current keycode

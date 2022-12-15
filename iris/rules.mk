@@ -12,8 +12,10 @@ KEY_OVERRIDE_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 DEFERRED_EXEC_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 
 BACKLIGHT_ENABLE = yes
 
+SRC = matrix.c
 SRC += features/hotkey_conv.c
 SRC += features/layer_lock.c
