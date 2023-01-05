@@ -20,21 +20,20 @@
 
 // Make X and > to be easier triggered
 #define TAPPING_TERM_PER_KEY
+#define DYNAMIC_TAPPING_TERM_INCREMENT 50
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX 100
 
-#define FIRMWARE_VERSION u8"gqXJ4/Z3b6v"
+#define FIRMWARE_VERSION u8"gqXJ4/Blyow"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
-
-#define RGB_MATRIX_STARTUP_SPD 60
 
 #define COMBO_COUNT 5
 #define COMBO_TERM 50        // how quickly all combo keys must be pressed in succession to trigger
 #define COMBO_MUST_HOLD_MODS // if a combo triggers a modifier, only trigger when the combo is held
 #define COMBO_HOLD_TERM 175  // how long at least one of the combo keys must be held to trigger
 
-#define DYNAMIC_TAPPING_TERM_INCREMENT 50
+#define RGB_MATRIX_STARTUP_SPD 60

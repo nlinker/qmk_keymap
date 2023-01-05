@@ -22,16 +22,17 @@ void switch_system_layout(uint8_t the_layer) {
     system_language_id = the_layer;
   }
 }
-static char state_bin[33];
-static char *padding = "..........................";
+
+//static char state_bin[33];
+//static char *padding = "..........................";
 
 bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t state) {
 
-  itoa(state, state_bin, 2);
-  int pad_len = 8 - strlen(state_bin) < 0? 0: 8 - strlen(state_bin);
-  uprintf("kc: 0x%04X, col: %3u, row: %3u, pressed: %u, [%*.*s%s]\n",
-          keycode, record->event.key.col, record->event.key.row, record->event.pressed,
-          pad_len, pad_len, padding, state_bin);
+//  itoa(state, state_bin, 2);
+//  int pad_len = 8 - strlen(state_bin) < 0? 0: 8 - strlen(state_bin);
+//  uprintf("kc: 0x%04X, col: %3u, row: %3u, pressed: %u, [%*.*s%s]\n",
+//          keycode, record->event.key.col, record->event.key.row, record->event.pressed,
+//          pad_len, pad_len, padding, state_bin);
 
   // the keycodes, that independent on the language system layout
   switch (keycode) {
