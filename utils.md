@@ -140,3 +140,69 @@ layer_state_t layer_state_set_user(layer_state_t new_state) {
             pad_len_new, pad_len_new, padding, new_state_bin);
 }
 ```
+
+### Checking layers
+
+```c
+bool is_new_nav = IS_LAYER_ON_STATE(new_state, _NAV);
+bool is_new_fnn = IS_LAYER_ON_STATE(new_state, _FNN);
+bool is_new_mouse = IS_LAYER_ON_STATE(new_state, _MOUSE);
+bool is_new_sym = IS_LAYER_ON_STATE(new_state, _SYM);
+bool is_cur_nav = IS_LAYER_ON_STATE(current_layer_state, _NAV);
+bool is_cur_fnn = IS_LAYER_ON_STATE(current_layer_state, _FNN);
+bool is_cur_mouse = IS_LAYER_ON_STATE(current_layer_state, _MOUSE);
+bool is_cur_sym = IS_LAYER_ON_STATE(current_layer_state, _SYM);
+bool is_cur_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
+bool is_new_ru = IS_LAYER_ON_STATE(new_state, _RUSSIAN);
+```
+
+
+### Key code translation
+
+```c
+  switch (keycode) {
+    case KC_MINS   : // #define RU_MINS KC_MINS    // -
+    case KC_EQL    : // #define RU_EQL  KC_EQL     // = 
+    case KC_BSLS   : // #define RU_BSLS KC_BSLS    // (backslash)
+    case S(KC_1)   : // #define RU_EXLM S(KC_1)    // ! !
+    case S(KC_2)   : // #define RU_DQUO S(KC_2)    // " @
+    case S(KC_3)   : // #define RU_NUM  S(KC_3)    // № #
+    case S(KC_4)   : // #define RU_SCLN S(KC_4)    // ; $
+    case S(KC_5)   : // #define RU_PERC S(KC_5)    // % %
+    case S(KC_6)   : // #define RU_COLN S(KC_6)    // : ^
+    case S(KC_7)   : // #define RU_QUES S(KC_7)    // ? &
+    case S(KC_8)   : // #define RU_ASTR S(KC_8)    // * *
+    case S(KC_9)   : // #define RU_LPRN S(KC_9)    // ( (
+    case S(KC_0)   : // #define RU_RPRN S(KC_0)    // ) )
+    case S(KC_MINS): // #define RU_UNDS S(KC_MINS) // _
+    case S(KC_EQL) : // #define RU_PLUS S(KC_EQL)  // +
+    case S(KC_BSLS): // #define RU_SLSH S(KC_BSLS) // /
+    case KC_SLSH   : // #define RU_DOT  KC_SLSH    // .
+    case S(KC_DOT) : // #define RU_COMM S(KC_DOT)  // ,
+
+      itoa(cur_state, cur_state_bin, 2);
+      int pad_len_cur = 8 - strlen(cur_state_bin) < 0? 0: 8 - strlen(cur_state_bin);
+      uprintf("cur_state: [%*.*s%s] sys_lang_id: %d, keycode: %d, is_ru: %d\n", pad_len_cur, pad_len_cur, padding, cur_state_bin,
+                system_language_id,
+                keycode,
+                is_ru
+              );
+
+      return true;
+  }
+```
+
+### Switch Russian/English
+                          
+```c
+switch (switch_keycode) {
+  case L_RUS: {
+    bool is_cur_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
+    if (is_cur_ru) {
+      switch_system_layout(_RUSSIAN);
+    } else {
+      switch_system_layout(_COLEMAK);
+    }
+  }
+}
+```

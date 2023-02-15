@@ -3,8 +3,6 @@
 #include "my_keycodes.h"
 #include "my_layers.h"
 
-enum SwitchState switch_state = SS_OFF;
-layer_state_t cur_state = 0;
 static uint8_t system_language_id = 0;
 
 void switch_system_layout(uint8_t the_layer) {
@@ -14,47 +12,85 @@ void switch_system_layout(uint8_t the_layer) {
     if (is_shift_pressed) {
       // here goes the workaround, since Shift+Caps turns Caps on, not switches the language
       unregister_code(KC_LSHIFT);
-      tap_code(KC_CAPS);
+      SEND_STRING(SS_TAP(X_CAPS) SS_DELAY(10));
       register_code(KC_LSHIFT);
     } else {
-      tap_code(KC_CAPS);
+      // tap_code(KC_CAPS);
+      SEND_STRING(SS_TAP(X_CAPS) SS_DELAY(10));
     }
     system_language_id = the_layer;
   }
 }
 
-//static char state_bin[33];
-//static char *padding = "..........................";
+static char cur_state_bin[33];
+static char *padding = "..........................";
 
-bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t state) {
+bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t cur_state) {
 
-//  itoa(state, state_bin, 2);
-//  int pad_len = 8 - strlen(state_bin) < 0? 0: 8 - strlen(state_bin);
-//  uprintf("kc: 0x%04X, col: %3u, row: %3u, pressed: %u, [%*.*s%s]\n",
-//          keycode, record->event.key.col, record->event.key.row, record->event.pressed,
-//          pad_len, pad_len, padding, state_bin);
+  // ! @ { } %   ^ & * + -
+  // " ~ ( ) $   M : ; = \_
+  // ' ` [ ] #   M | < > ?
 
-  // the keycodes, that independent on the language system layout
-  switch (keycode) {
-    case KC_MINS   : // #define RU_MINS KC_MINS    // -
-    case KC_EQL    : // #define RU_EQL  KC_EQL     // =
-    case KC_BSLS   : // #define RU_BSLS KC_BSLS    // (backslash)
-    case S(RU_1)   : // #define RU_EXLM S(RU_1)    // !
-    case S(RU_2)   : // #define RU_DQUO S(RU_2)    // "
-    case S(RU_3)   : // #define RU_NUM  S(RU_3)    // №
-    case S(RU_4)   : // #define RU_SCLN S(RU_4)    // ;
-    case S(RU_5)   : // #define RU_PERC S(RU_5)    // %
-    case S(RU_6)   : // #define RU_COLN S(RU_6)    // :
-    case S(RU_7)   : // #define RU_QUES S(RU_7)    // ?
-    case S(RU_8)   : // #define RU_ASTR S(RU_8)    // *
-    case S(RU_9)   : // #define RU_LPRN S(RU_9)    // (
-    case S(RU_0)   : // #define RU_RPRN S(RU_0)    // )
-    case S(RU_MINS): // #define RU_UNDS S(RU_MINS) // _
-    case S(RU_EQL) : // #define RU_PLUS S(RU_EQL)  // +
-    case S(RU_BSLS): // #define RU_SLSH S(RU_BSLS) // /
-    case KC_SLSH   : // #define RU_DOT  KC_SLSH    // .
-    case S(RU_DOT) : // #define RU_COMM S(RU_DOT)  // ,
-      return true;
+  // ! " Х Ъ %   : ? * + -
+  // Э Ё ( ) ;   M Ж ж = \_
+  // э ё х ъ №   M / Б Ю ,
+
+  // KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        ST_MACRO_0,     KC_PERC,        KC_TRANSPARENT,         KC_TRANSPARENT, KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_PLUS,        KC_MINUS,       KC_TRANSPARENT,
+  // KC_TAB,         KC_DQUO,        KC_TILD,        KC_LPRN,        ST_MACRO_1,     KC_DLR,         KC_TRANSPARENT,         KC_TRANSPARENT, ST_MACRO_3,     KC_COLN,        KC_SCOLON,      KC_EQUAL,       KC_BSLASH,      KC_ENTER,
+  // KC_TRANSPARENT, KC_QUOTE,       KC_GRAVE,       KC_LBRACKET,    ST_MACRO_2,     KC_HASH,                                                ST_MACRO_4,     KC_PIPE,        KC_LABK,        KC_RABK,        KC_QUES,        KC_TRANSPARENT,
+
+  bool is_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
+  // bool is_sym = IS_LAYER_ON_STATE(cur_state, _SYM);
+
+  itoa(cur_state, cur_state_bin, 2);
+  int pad_len_cur = 8 - strlen(cur_state_bin) < 0? 0: 8 - strlen(cur_state_bin);
+  uprintf("cur_state: [%*.*s%s] sys_lang_id: %d, keycode: %d, is_ru: %d\n", pad_len_cur, pad_len_cur, padding, cur_state_bin,
+          system_language_id, keycode, is_ru);
+
+  if (is_ru) {
+    switch (keycode) {
+      case KC_EXLM:
+      case KC_PERC:
+      case KC_PLUS:
+      case KC_MINUS:
+      case KC_LPRN:
+      case KC_RPRN:
+      case KC_BSLASH:
+      case KC_EQUAL:
+        keycode = keycode;
+        break;
+
+      case KC_DQUO:
+        keycode = S(KC_2);
+        break;
+
+      case KC_AT:
+      case KC_CIRC:
+      case KC_AMPR:
+      case KC_ASTR:
+      case KC_TILD:
+      case KC_DLR:
+      case KC_COLN:
+      case KC_SCOLON:
+      case KC_LCBR:
+      case KC_QUOTE:
+      case KC_GRAVE:
+      case KC_HASH:
+      case KC_PIPE:
+      case KC_LABK:
+      case KC_RABK:
+      case KC_LBRACKET:
+      case KC_QUES:
+//        switch_system_layout(_COLEMAK);
+//        switch_system_layout(_RUSSIAN);
+        break;
+    }
+//    if (record->event.pressed) {
+//      register_code16(keycode);
+//    } else {
+//      unregister_code16(keycode);
+//    }
+//    return false;
   }
 
 //  switch (switch_state) {
@@ -70,7 +106,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
 //      break;
 //  }
 
-  //  if (is_ru_layer) {
+//  if (is_ru_layer) {
 //    if (is_ru_layer_exactly) {
 //      uint8_t r = record->event.key.row;
 //      uint8_t c = record->event.key.col;

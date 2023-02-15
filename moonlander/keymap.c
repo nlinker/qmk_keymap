@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           KC_TRANSPARENT,         KC_TRANSPARENT, KC_J,           KC_L,           KC_U,           KC_Y,           KC_UNDS,        A_LOCK,
     KC_TAB,         L_LSYM,         L_LALT,         L_LCTL,         L_LSFT,         KC_G,           KC_TRANSPARENT,         KC_TRANSPARENT, KC_M,           L_RSFT,         L_RCTL,         L_RALT,         L_RSYM,         KC_ENTER,
-    A_ATAB,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                                                   KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_TRANSPARENT,
+    A_ATAB,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                                                   KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_NO,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LSHIFT,      KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_RSHIFT,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     L_NAV,          KC_SPACE,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_BSPACE,      L_FNN
   ),
@@ -44,23 +44,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     RU_YO,          RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,
     RU_HARD,        L_LSYM_,        L_LALT_,        L_LCTL_,        L_LSFT_,        RU_PE,          KC_TRANSPARENT,         KC_TRANSPARENT, RU_ER,          L_RSFT_,        L_RCTL_,        L_RALT_,        L_RSYM_,        RU_E,
-    KC_TRANSPARENT, RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                                   RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_DOT,         KC_ENTER,
+    KC_TRANSPARENT, RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                                   RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_DOT,         KC_NO,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [2] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, LCTL(KC_Q),     LCTL(KC_W),     LCTL(KC_F),     LCTL(KC_P),     LCTL(KC_B),     KC_TRANSPARENT,         KC_TRANSPARENT, KC_F4,          KC_HOME,        KC_UP,          KC_END,         KC_F2,          KC_F12,
-    KC_TAB,         MO(5),          KC_LALT,        KC_LCTRL,       KC_LSHIFT,      KC_NO,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_F5,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_F3,          KC_ENTER,
-    KC_TRANSPARENT, LCTL(KC_Z),     LCTL(KC_X),     LCTL(KC_C),     LCTL(KC_D),     LCTL(KC_V),                                             KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
+    KC_TRANSPARENT, LCTL(KC_Q),     LCTL(KC_W),     LCTL(KC_F),     LCTL(KC_P),     LCTL(KC_B),     KC_TRANSPARENT,         KC_TRANSPARENT, KC_F4,          KC_HOME,        KC_UP,          KC_END,         KC_F12,         KC_F2,
+    KC_TAB,         MO(5),          KC_LALT,        KC_LCTRL,       KC_LSHIFT,      KC_NO,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_F5,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_F11,         KC_ENTER,
+    KC_TRANSPARENT, LCTL(KC_Z),     LCTL(KC_X),     LCTL(KC_C),     LCTL(KC_D),     LCTL(KC_V),                                             KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F3,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [3] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_CAPSLOCK,    KC_7,           KC_8,           KC_9,           KC_NO,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
-    KC_TAB,         MO(5),          KC_4,           KC_5,           KC_6,           KC_NO,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_NO,          KC_RSHIFT,      KC_RCTRL,       KC_LALT,        MO(5),          KC_ENTER,
-    KC_TRANSPARENT, KC_0,           KC_1,           KC_2,           KC_3,           KC_CAPSLOCK,                                            L_RUS,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
+    KC_TAB,         MO(5),          KC_4,           KC_5,           KC_6,           KC_NO,          KC_TRANSPARENT,         KC_TRANSPARENT, KC_CAPS,        KC_RSHIFT,      KC_RCTRL,       KC_LALT,        MO(5),          KC_ENTER,
+    KC_TRANSPARENT, KC_0,           KC_1,           KC_2,           KC_3,           KC_NO,                                                  L_RUS,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -209,30 +209,14 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 layer_state_t layer_state_set_user(layer_state_t new_state) {
   new_state = update_tri_layer_state(new_state, _NAV, _FNN, _MOUSE);
   if (cur_state != new_state) {
-//    bool is_new_nav = IS_LAYER_ON_STATE(new_state, _NAV);
-//    bool is_new_fnn = IS_LAYER_ON_STATE(new_state, _FNN);
-//    bool is_new_mouse = IS_LAYER_ON_STATE(new_state, _MOUSE);
-//    bool is_new_sym = IS_LAYER_ON_STATE(new_state, _SYM);
-//    bool is_cur_nav = IS_LAYER_ON_STATE(current_layer_state, _NAV);
-//    bool is_cur_fnn = IS_LAYER_ON_STATE(current_layer_state, _FNN);
-//    bool is_cur_mouse = IS_LAYER_ON_STATE(current_layer_state, _MOUSE);
-//    bool is_cur_sym = IS_LAYER_ON_STATE(current_layer_state, _SYM);
     bool is_cur_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
     bool is_new_ru = IS_LAYER_ON_STATE(new_state, _RUSSIAN);
-
-    if (is_cur_ru && is_new_ru) {
-      // example: 2 -> 34 or 34 -> 2
-      bool is_new_ru_exact = new_state == (1 << _RUSSIAN);
-      if (is_new_ru_exact) {
-        // return to russian
-        switch_system_layout(_RUSSIAN);
-      } else {
-        switch_system_layout(_COLEMAK);
-      }
-    } else if (!is_cur_ru && is_new_ru) {
-      switch_system_layout(_RUSSIAN);
-    } else if (is_cur_ru && !is_new_ru) {
+    if (is_cur_ru && !is_new_ru) {
+      // switch system ru -> en
       switch_system_layout(_COLEMAK);
+    } else if (!is_cur_ru && is_new_ru) {
+      // switch system en -> ru
+      switch_system_layout(_RUSSIAN);
     }
   }
   cur_state = new_state;
@@ -255,6 +239,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!process_hotkey_conversion(keycode, record, cur_state)) {
     return false;
   }
+
+  bool is_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
   switch (keycode) {
     case A_ATAB:
       if (record->event.pressed) {
@@ -271,8 +257,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case ST_MACRO_0:
       if (record->event.pressed) {
-      SEND_STRING("}" SS_TAP(X_LEFT));
-
+        if (is_ru) {
+          switch_system_layout(_COLEMAK);
+          SEND_STRING("}" SS_TAP(X_LEFT));
+          switch_system_layout(_RUSSIAN);
+        } else {
+          SEND_STRING("}" SS_TAP(X_LEFT));
+        }
       }
       break;
     case ST_MACRO_1:
@@ -283,20 +274,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case ST_MACRO_2:
       if (record->event.pressed) {
-      SEND_STRING("]" SS_TAP(X_LEFT));
-
+        if (is_ru) {
+          switch_system_layout(_COLEMAK);
+          SEND_STRING("]" SS_TAP(X_LEFT));
+          switch_system_layout(_RUSSIAN);
+        } else {
+          SEND_STRING("]" SS_TAP(X_LEFT));
+        }
     }
     break;
     case ST_MACRO_3:
     if (record->event.pressed) {
-      SEND_STRING("::");
-
+      if (is_ru) {
+        SEND_STRING(SS_LSFT("66"));
+      } else {
+        SEND_STRING("::");
+      }
     }
     break;
     case ST_MACRO_4:
     if (record->event.pressed) {
-      SEND_STRING("::<>" SS_TAP(X_LEFT));
-
+      if (is_ru) {
+        switch_system_layout(_COLEMAK);
+        SEND_STRING("::<>" SS_TAP(X_LEFT));
+        switch_system_layout(_RUSSIAN);
+      } else {
+        SEND_STRING("::<>" SS_TAP(X_LEFT));
+      }
     }
     break;
     case RGB_SLD:
