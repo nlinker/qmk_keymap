@@ -206,3 +206,89 @@ switch (switch_keycode) {
   }
 }
 ```
+
+### Old processing
+
+```c
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_layer_lock(keycode, record, A_LOCK)) {
+    return false;
+  }
+  if (!process_hotkey_conversion(keycode, record, cur_state)) {
+    return false;
+  }
+
+  bool is_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
+  switch (keycode) {
+    case A_ATAB:
+      if (record->event.pressed) {
+        if (!atab_tapped) {
+          register_code(KC_LGUI);
+        }
+        static deferred_token idle_token = INVALID_DEFERRED_TOKEN;
+        if (!extend_deferred_exec(idle_token, A_TAB_TIMEOUT)) {
+          idle_token = defer_exec(A_TAB_TIMEOUT, idle_callback, NULL);
+        }
+        atab_tapped = true;
+        tap_code(KC_TAB);
+      }
+      break;
+    case ST_MACRO_0:
+      if (record->event.pressed) {
+        if (is_ru) {
+          switch_system_layout(_COLEMAK);
+          SEND_STRING("}" SS_TAP(X_LEFT));
+          switch_system_layout(_RUSSIAN);
+        } else {
+          SEND_STRING("}" SS_TAP(X_LEFT));
+        }
+      }
+      break;
+    case ST_MACRO_1:
+      if (record->event.pressed) {
+      SEND_STRING(")" SS_TAP(X_LEFT));
+
+      }
+      break;
+    case ST_MACRO_2:
+      if (record->event.pressed) {
+        if (is_ru) {
+          switch_system_layout(_COLEMAK);
+          SEND_STRING("]" SS_TAP(X_LEFT));
+          switch_system_layout(_RUSSIAN);
+        } else {
+          SEND_STRING("]" SS_TAP(X_LEFT));
+        }
+    }
+    break;
+    case ST_MACRO_3:
+    if (record->event.pressed) {
+      if (is_ru) {
+        SEND_STRING(SS_LSFT("66"));
+      } else {
+        SEND_STRING("::");
+      }
+    }
+    break;
+    case ST_MACRO_4:
+    if (record->event.pressed) {
+      if (is_ru) {
+        switch_system_layout(_COLEMAK);
+        SEND_STRING("::<>" SS_TAP(X_LEFT));
+        switch_system_layout(_RUSSIAN);
+      } else {
+        SEND_STRING("::<>" SS_TAP(X_LEFT));
+      }
+    }
+    break;
+
+    case RGB_SLD:
+      if (record->event.pressed) {
+        rgblight_mode(1);
+      }
+      return false;
+  }
+  return true;
+}
+```
+
