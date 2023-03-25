@@ -22,8 +22,8 @@ void switch_system_layout(uint8_t the_layer) {
   }
 }
 
-static char cur_state_bin[33];
-static char *padding = "..........................";
+//static char cur_state_bin[33];
+//static char *padding = "..........................";
 
 bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_state_t cur_state) {
 
@@ -42,10 +42,10 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
   bool is_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
   // bool is_sym = IS_LAYER_ON_STATE(cur_state, _SYM);
 
-  itoa(cur_state, cur_state_bin, 2);
-  int pad_len_cur = 8 - strlen(cur_state_bin) < 0? 0: 8 - strlen(cur_state_bin);
-  uprintf("cur_state: [%*.*s%s] sys_lang_id: %d, keycode: %d, is_ru: %d\n", pad_len_cur, pad_len_cur, padding, cur_state_bin,
-          system_language_id, keycode, is_ru);
+//  itoa(cur_state, cur_state_bin, 2);
+//  int pad_len_cur = 8 - strlen(cur_state_bin) < 0? 0: 8 - strlen(cur_state_bin);
+//  uprintf("cur_state: [%*.*s%s] sys_lang_id: %d, keycode: %d, is_ru: %d\n", pad_len_cur, pad_len_cur, padding, cur_state_bin,
+//          system_language_id, keycode, is_ru);
 
   if (is_ru) {
     switch (keycode) {
