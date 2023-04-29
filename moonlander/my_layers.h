@@ -12,10 +12,6 @@ enum my_layers {
     _SYM,
 };
 
-enum tap_dance_codes {
-    DANCE_0,
-};
-
 #define L_RUS  TG(_RUSSIAN)
 #define L_NAV  MO(_NAV)
 #define L_FNN  MO(_FNN)
@@ -33,10 +29,6 @@ enum tap_dance_codes {
 #define L_RCTL  MT(MOD_RCTL, KC_E)
 #define L_RALT  MT(MOD_LALT, KC_I)
 #define L_RSYM  LT(_SYM, KC_O)
-
-#define L_RSFT0  TD(DANCE_0)
-#define L_RCTL0  MT(MOD_RCTL, KC_SCOLON)
-#define L_RALT0  MT(MOD_LALT, KC_EQUAL)
 
 // Russian layer modifiers
 #define L_LSYM_  LT(_SYM, RU_EF)
