@@ -23,7 +23,7 @@ enum my_layers {
 // Sym layer mod taps
 #define A_CLBR MT(MOD_RSFT, KC_LBRACKET)
 #define A_CRBR MT(MOD_RCTL, KC_RBRACKET)
-#define A_EQUL MT(MOD_LALT, KC_EQUAL)
+#define A_BSLS MT(MOD_LALT, KC_BSLASH)
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
