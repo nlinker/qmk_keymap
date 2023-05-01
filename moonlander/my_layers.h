@@ -19,6 +19,11 @@ enum my_layers {
 #define L_PLOV MO(_PLOVER)
 
 // Colemak layer modifiers
+
+// Sym layer mod taps
+#define A_CLBR MT(MOD_RCTL, KC_LBRACKET)
+#define A_CRBR MT(MOD_LALT, KC_RBRACKET)
+
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
 #define L_LALT  MT(MOD_LALT, KC_R)
