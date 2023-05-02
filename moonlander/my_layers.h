@@ -20,10 +20,9 @@ enum my_layers {
 
 // Colemak layer modifiers
 
-// Sym layer mod taps
-#define A_CLBR MT(MOD_RSFT, KC_LBRACKET)
-#define A_CRBR MT(MOD_RCTL, KC_RBRACKET)
-#define A_BSLS MT(MOD_LALT, KC_BSLASH)
+#define A_LALT_4  MT(MOD_LALT, KC_4)
+#define A_LCTL_5  MT(MOD_LCTL, KC_5)
+#define A_LSFT_6  MT(MOD_LSFT, KC_6)
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
