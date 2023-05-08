@@ -19,8 +19,9 @@ The most notable features are:
 - SYM layer is accessible with right thumb hold, and is synchronized with the base layer in `<`, `>` and `/` symbols; 
   this means the base symbols correspond to the shifted ones on the Symbol layer, it simplifies the layout remembering
 - There are a few combos on the NAV layer:
-  - `LCtrl = T + S`, `LAlt = S + R`, `LCtrl + LAlt = T + S + R`     
-  - `RCtrl = N + E`, `LAlt = E + I`, `RCtrl + LAlt = N + E + I`     
+  - `Insert = Home + Up`, `Delete = Left + Down`,     
+  - `PageUp = Up + End`, `PageDown = Down + Right`,
+  - (Despite it seemingly inconvenient they are pretty natural ones).
 
 - Hotkeys and symbols don't depend on the English/Russian system layout, achieved with `hotkey_conv` module.
   (This is WIP currently).
@@ -30,7 +31,7 @@ The most notable features are:
 <img src="img/0_colemak.png" width="768">
 <img src="img/1_russian.png" width="768">
 <img src="img/2_nav.png" width="768">
-<img src="img/3_fnn.png" width="768">
+<img src="img/3_sym.png" width="768">
 <img src="img/4_mouse.png" width="768">
 
 ## Installation
