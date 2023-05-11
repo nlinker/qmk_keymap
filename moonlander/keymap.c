@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_A,           L_LALT,         L_LCTL,         L_LSFT,         KC_G,           KC_TRANSPARENT,         KC_TRANSPARENT, KC_M,           L_RSFT,         L_RCTL,         L_RALT,         KC_O,           KC_ENTER,
     A_ATAB,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,                                                   KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       L_RUS,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LSHIFT,      KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_RSHIFT,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    L_NAV,          KC_SPACE,       KC_TAB,                         KC_ENTER,       KC_BSPACE,      L_FNN
+    L_NAV,          KC_SPACE,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_BSPACE,      L_FNN
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -61,8 +61,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_ESCAPE,      KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_TRANSPARENT,         KC_TRANSPARENT, KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_PLUS,        KC_MINUS,       KC_BSPACE,
-    KC_TAB,         KC_DQUO,        KC_TILD,        KC_LPRN,        KC_RPRN,        KC_BSLASH,      KC_TRANSPARENT,         KC_TRANSPARENT, KC_COLN,        KC_LCBR,        KC_RCBR,        KC_EQUAL,       KC_SCOLON,      KC_ENTER,
-    KC_CAPSLOCK,    KC_QUOTE,       KC_GRAVE,       KC_LBRACKET,    KC_RBRACKET,    ST_MACRO_0,                                             ST_MACRO_1,     KC_LABK,        KC_RABK,        KC_PIPE,        KC_QUES,        KC_NO,
+    KC_TAB,         KC_DQUO,        KC_TILD,        KC_LPRN,        KC_RPRN,        KC_BSLASH,      KC_TRANSPARENT,         KC_TRANSPARENT, KC_EQUAL,       KC_COLN,        KC_LCBR,        KC_RCBR,        KC_SCOLON,      KC_ENTER,
+    KC_CAPSLOCK,    KC_QUOTE,       KC_GRAVE,       KC_LBRACKET,    KC_RBRACKET,    ST_MACRO_0,                                             ST_MACRO_1,     KC_PIPE,        KC_LABK,        KC_RABK,        KC_QUES,        KC_NO,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
