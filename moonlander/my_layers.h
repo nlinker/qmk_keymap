@@ -20,9 +20,9 @@ enum my_layers {
 
 // Colemak layer modifiers
 
-#define A_LALT_4  MT(MOD_LALT, KC_4)
-#define A_LCTL_5  MT(MOD_LCTL, KC_5)
-#define A_LSFT_6  MT(MOD_LSFT, KC_6)
+#define A_LALT_1  MT(MOD_LALT, KC_1)
+#define A_LCTL_2  MT(MOD_LCTL, KC_2)
+#define A_LSFT_3  MT(MOD_LSFT, KC_3)
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
