@@ -10,6 +10,8 @@
 # Log
 *.log
 
+*.patch
+
 /optozorax/
 /oryx_generated/
 /cmake-build-debug/
