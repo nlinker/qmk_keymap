@@ -26,13 +26,13 @@ enum my_layers {
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
-#define L_LALT  MT(MOD_LALT, KC_R)
-#define L_LCTL  MT(MOD_LCTL, KC_S)
-#define L_LSFT  MT(MOD_LSFT, KC_T)
+#define L_LALT  MT(MOD_LALT, KC_S)
+#define L_LCTL  MT(MOD_LCTL, KC_D)
+#define L_LSFT  MT(MOD_LSFT, KC_F)
 
-#define L_RSFT  MT(MOD_RSFT, KC_N)
-#define L_RCTL  MT(MOD_RCTL, KC_E)
-#define L_RALT  MT(MOD_LALT, KC_I)
+#define L_RSFT  MT(MOD_RSFT, KC_J)
+#define L_RCTL  MT(MOD_RCTL, KC_K)
+#define L_RALT  MT(MOD_LALT, KC_L)
 #define L_RSYM  LT(_SYM, KC_O)
 
 // Russian layer modifiers
