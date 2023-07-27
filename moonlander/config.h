@@ -31,7 +31,7 @@
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
 
-#define COMBO_COUNT 11
+#define COMBO_COUNT 9
 #define COMBO_TERM 50        // how quickly all combo keys must be pressed in succession to trigger
 #define COMBO_MUST_HOLD_MODS // if a combo triggers a modifier, only trigger when the combo is held
 #define COMBO_HOLD_TERM 175  // how long at least one of the combo keys must be held to trigger

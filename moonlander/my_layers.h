@@ -4,19 +4,16 @@
 #include "keymap_russian.h"
 
 enum my_layers {
-    _COLEMAK,
+    _QWERTY,
     _RUSSIAN,
-    _NAV,
+    _NAV_L,
+    _NAV_R,
     _FNN,
-    _MOUSE,
     _SYM,
+    _MOUSE,
 };
 
 #define L_RUS  TG(_RUSSIAN)
-#define L_NAV  MO(_NAV)
-#define L_FNN  MO(_FNN)
-#define L_SYM  MO(_SYM)
-#define L_PLOV MO(_PLOVER)
 
 // Modifier keys on NavL and NavR layers
 
