@@ -18,11 +18,15 @@ enum my_layers {
 #define L_SYM  MO(_SYM)
 #define L_PLOV MO(_PLOVER)
 
-// Colemak layer modifiers
+// Modifier keys on NavL and NavR layers
 
-#define A_LALT_4  MT(MOD_LALT, KC_4)
-#define A_LCTL_5  MT(MOD_LCTL, KC_5)
-#define A_LSFT_6  MT(MOD_LSFT, KC_6)
+#define AM_KC_4  MT(MOD_LALT, KC_4)
+#define AM_KC_5  MT(MOD_LCTL, KC_5)
+#define AM_KC_6  MT(MOD_LSFT, KC_6)
+
+#define AM_LEFT  MT(MOD_RSFT, KC_LEFT)
+#define AM_DOWN  MT(MOD_RCTL, KC_DOWN)
+#define AM_RIGHT MT(MOD_LALT, KC_RIGHT)
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
