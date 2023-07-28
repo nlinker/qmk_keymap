@@ -8,9 +8,9 @@ enum my_layers {
     _RUSSIAN,
     _NAV_L,
     _NAV_R,
-    _FNN,
     _SYM,
     _MOUSE,
+    _STENO,
 };
 
 #define L_RUS  TG(_RUSSIAN)
