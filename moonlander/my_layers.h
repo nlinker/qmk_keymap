@@ -8,25 +8,16 @@ enum my_layers {
     _RUSSIAN,
     _NAV_L,
     _NAV_R,
-    _SYM,
+    _SYM_L,
+    _SYM_R,
     _MOUSE,
     _STENO,
 };
 
 #define L_RUS  TG(_RUSSIAN)
 
-// Modifier keys on NavL and NavR layers
-
-#define AM_KC_4  MT(MOD_LALT, KC_4)
-#define AM_KC_5  MT(MOD_LCTL, KC_5)
-#define AM_KC_6  MT(MOD_LSFT, KC_6)
-
-#define AM_LEFT  MT(MOD_RSFT, KC_LEFT)
-#define AM_DOWN  MT(MOD_RCTL, KC_DOWN)
-#define AM_RIGHT MT(MOD_LALT, KC_RIGHT)
-
 //#define L_LSYM  LT(_SYM, KC_TAB)
-#define L_LSYM  LT(_SYM, KC_A)
+#define L_LSYM  LT(_SYM_L, KC_A)
 #define L_LALT  MT(MOD_LALT, KC_S)
 #define L_LCTL  MT(MOD_LCTL, KC_D)
 #define L_LSFT  MT(MOD_LSFT, KC_F)
@@ -34,10 +25,10 @@ enum my_layers {
 #define L_RSFT  MT(MOD_RSFT, KC_J)
 #define L_RCTL  MT(MOD_RCTL, KC_K)
 #define L_RALT  MT(MOD_LALT, KC_L)
-#define L_RSYM  LT(_SYM, KC_O)
+#define L_RSYM  LT(_SYM_R, KC_O)
 
 // Russian layer modifiers
-#define L_LSYM_  LT(_SYM, RU_EF)
+#define L_LSYM_  LT(_SYM_L, RU_EF)
 #define L_LALT_  MT(MOD_LALT, RU_YERU)
 #define L_LCTL_  MT(MOD_LCTL, RU_VE)
 #define L_LSFT_  MT(MOD_LSFT, RU_A)
@@ -45,4 +36,22 @@ enum my_layers {
 #define L_RSFT_  MT(MOD_RSFT, RU_O)
 #define L_RCTL_  MT(MOD_RCTL, RU_EL)
 #define L_RALT_  MT(MOD_LALT, RU_DE)
-#define L_RSYM_  LT(_SYM, RU_ZHE)
+#define L_RSYM_  LT(_SYM_R, RU_ZHE)
+
+// Modifier keys on NavL and NavR layers
+#define ZLA_4 MT(MOD_LALT, KC_4)
+#define ZLC_5 MT(MOD_LCTL, KC_5)
+#define ZLS_6 MT(MOD_LSFT, KC_6)
+
+#define ZRS_LEFT  MT(MOD_RSFT, KC_LEFT)
+#define ZRC_DOWN  MT(MOD_RCTL, KC_DOWN)
+#define ZRA_RIGHT MT(MOD_LALT, KC_RIGHT)
+
+// Modifier keys on SymL and SymR layers
+#define ZLA_RCBR KC_RCBR  // TD(DANCE_0)
+#define ZLC_LPRN KC_LPRN  // TD(DANCE_1)
+#define ZLS_RPRN KC_RPRN  // TD(DANCE_2)
+
+#define ZRS_UNDS  KC_UNDS   // TD(DANCE_3)
+#define ZRC_DQUO  KC_DQUO   // TD(DANCE_4)
+#define ZRA_QUOTE KC_QUOTE  // MT(MOD_LALT, KC_QUOTE)
