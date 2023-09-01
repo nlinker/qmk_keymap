@@ -222,7 +222,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 };
 
 layer_state_t layer_state_set_user(layer_state_t new_state) {
-  //  new_state = update_tri_layer_state(new_state, _NAV_L, _NAV_R, _MOUSE);
+  new_state = update_tri_layer_state(new_state, _NAV_L, _NAV_R, _MOUSE);
   if (cur_state != new_state) {
     bool is_cur_ru = IS_LAYER_ON_STATE(cur_state, _RUSSIAN);
     bool is_new_ru = IS_LAYER_ON_STATE(new_state, _RUSSIAN);
