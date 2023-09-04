@@ -48,10 +48,10 @@ enum my_layers {
 #define ZRA_RIGHT MT(MOD_LALT, KC_RIGHT)
 
 // Modifier keys on SymL and SymR layers
-#define ZLA_RCBR KC_RCBR  // TD(DANCE_0)
-#define ZLC_LPRN KC_LPRN  // TD(DANCE_1)
-#define ZLS_RPRN KC_RPRN  // TD(DANCE_2)
+#define ZLA_RCBR  TD(DANCE_0)
+#define ZLC_LPRN  TD(DANCE_1)
+#define ZLS_RPRN  TD(DANCE_2)
 
-#define ZRS_UNDS  KC_UNDS   // TD(DANCE_3)
-#define ZRC_DQUO  KC_DQUO   // TD(DANCE_4)
-#define ZRA_QUOTE KC_QUOTE  // MT(MOD_LALT, KC_QUOTE)
+#define ZRS_UNDS  TD(DANCE_3)
+#define ZRC_DQUO  TD(DANCE_4)
+#define ZRA_QUOTE MT(MOD_LALT, KC_QUOTE)
