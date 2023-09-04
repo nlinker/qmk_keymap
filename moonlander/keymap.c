@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_A,           L_LALT,         L_LCTL,         L_LSFT,         KC_G,           KC_TRANSPARENT,         KC_TRANSPARENT, KC_H,           L_RSFT,         L_RCTL,         L_RALT,         KC_SCOLON,      KC_ENTER,
     A_ATAB,         KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                   KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       L_RUS,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LSHIFT,      KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_RSHIFT,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    MO(2),          KC_SPACE,       MO(4),                          MO(5),          KC_BSPACE,      MO(3)
+    MO(2),          MT(MOD_LSFT, KC_SPACE),MO(4),                   MO(5),          MT(MOD_RSFT, KC_BSPACE),      MO(3)
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [6] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    DT_UP,          A_LOCK,         KC_MS_BTN3,     KC_PSCREEN,     LSFT(KC_PSCREEN),KC_NO,         KC_TRANSPARENT,         KC_TRANSPARENT, KC_NO,          KC_MS_WH_LEFT,  KC_MS_UP,       KC_MS_WH_RIGHT, KC_MS_WH_UP,    KC_NO,
+    DT_UP,          A_LOCK,         KC_MS_BTN3,     KC_PSCREEN,     LALT(KC_PSCREEN),KC_NO,         KC_TRANSPARENT,         KC_TRANSPARENT, KC_NO,          KC_MS_WH_LEFT,  KC_MS_UP,       KC_MS_WH_RIGHT, KC_MS_WH_UP,    KC_NO,
     DT_PRNT,        KC_NO,          KC_APPLICATION, KC_MS_BTN1,     KC_MS_BTN2,     KC_LGUI,        KC_TRANSPARENT,         KC_TRANSPARENT, KC_RGUI,        KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_MS_WH_DOWN,  KC_ENTER,
     DT_DOWN,        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                  KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
