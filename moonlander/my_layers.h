@@ -8,8 +8,7 @@ enum my_layers {
     _RUSSIAN,
     _NAV_L,
     _NAV_R,
-    _SYM_L,
-    _SYM_R,
+    _SYM,
     _MOUSE,
     _STENO,
 };
@@ -17,7 +16,7 @@ enum my_layers {
 #define L_RUS  TG(_RUSSIAN)
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
-#define L_LSYM  LT(_SYM_L, KC_A)
+#define L_LSYM  LT(_SYM, KC_A)
 #define L_LALT  MT(MOD_LALT, KC_S)
 #define L_LCTL  MT(MOD_LCTL, KC_D)
 #define L_LSFT  MT(MOD_LSFT, KC_F)
@@ -25,10 +24,10 @@ enum my_layers {
 #define L_RSFT  MT(MOD_RSFT, KC_J)
 #define L_RCTL  MT(MOD_RCTL, KC_K)
 #define L_RALT  MT(MOD_LALT, KC_L)
-#define L_RSYM  LT(_SYM_R, KC_O)
+#define L_RSYM  LT(_SYM, KC_O)
 
 // Russian layer modifiers
-#define L_LSYM_  LT(_SYM_L, RU_EF)
+#define L_LSYM_  LT(_SYM, RU_EF)
 #define L_LALT_  MT(MOD_LALT, RU_YERU)
 #define L_LCTL_  MT(MOD_LCTL, RU_VE)
 #define L_LSFT_  MT(MOD_LSFT, RU_A)
@@ -36,7 +35,7 @@ enum my_layers {
 #define L_RSFT_  MT(MOD_RSFT, RU_O)
 #define L_RCTL_  MT(MOD_RCTL, RU_EL)
 #define L_RALT_  MT(MOD_LALT, RU_DE)
-#define L_RSYM_  LT(_SYM_R, RU_ZHE)
+#define L_RSYM_  LT(_SYM, RU_ZHE)
 
 // Modifier keys on NavL and NavR layers
 #define ZLA_4 MT(MOD_LALT, KC_4)
