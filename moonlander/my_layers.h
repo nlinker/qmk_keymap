@@ -38,6 +38,7 @@ enum my_layers {
 #define L_RSYM_  LT(_SYM, RU_ZHE)
 
 // Modifier keys on NavL and NavR layers
+#define ZLK_0 LT(_SYM, KC_0)
 #define ZLA_4 MT(MOD_LALT, KC_4)
 #define ZLC_5 MT(MOD_LCTL, KC_5)
 #define ZLS_6 MT(MOD_LSFT, KC_6)
@@ -45,6 +46,7 @@ enum my_layers {
 #define ZRS_LEFT  MT(MOD_RSFT, KC_LEFT)
 #define ZRC_DOWN  MT(MOD_RCTL, KC_DOWN)
 #define ZRA_RIGHT MT(MOD_LALT, KC_RIGHT)
+#define ZRK_F11   LT(_SYM,KC_F11)
 
 // Modifier keys on SymL and SymR layers
 #define ZLA_RCBR  TD(DANCE_0)
