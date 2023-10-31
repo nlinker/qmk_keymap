@@ -11,9 +11,9 @@ void switch_system_layout(uint8_t the_layer) {
     const bool is_shift_pressed = mods & MOD_MASK_SHIFT;
     if (is_shift_pressed) {
       // here goes the workaround, since Shift+Caps turns Caps on, not switches the language
-      unregister_code(KC_LSHIFT);
+      unregister_code(KC_LSFT);
       SEND_STRING(SS_TAP(X_CAPS) SS_DELAY(10));
-      register_code(KC_LSHIFT);
+      register_code(KC_LSFT);
     } else {
       // tap_code(KC_CAPS);
       SEND_STRING(SS_TAP(X_CAPS) SS_DELAY(10));
@@ -55,7 +55,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
       case KC_MINUS:
       case KC_LPRN:
       case KC_RPRN:
-      case KC_BSLASH:
+      case KC_BSLS:
       case KC_EQUAL:
         keycode = keycode;
         break;
@@ -71,7 +71,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
       case KC_TILD:
       case KC_DLR:
       case KC_COLN:
-      case KC_SCOLON:
+      case KC_SCLN:
       case KC_LCBR:
       case KC_QUOTE:
       case KC_GRAVE:
@@ -79,7 +79,7 @@ bool process_hotkey_conversion(uint16_t keycode, keyrecord_t *record, layer_stat
       case KC_PIPE:
       case KC_LABK:
       case KC_RABK:
-      case KC_LBRACKET:
+      case KC_LBRC:
       case KC_QUES:
 //        switch_system_layout(_COLEMAK);
 //        switch_system_layout(_RUSSIAN);

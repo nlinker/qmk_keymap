@@ -26,6 +26,16 @@ The most notable features are:
 - Hotkeys and symbols don't depend on the English/Russian system layout, achieved with `hotkey_conv` module.
   (This is WIP currently).
 
+## Installation
+
+Install [QMK](https://docs.qmk.fm/) using Python 3 toolchain. 
+Clone [`ZSA QMK fork`](https://github.com/zsa/qmk_firmware), and there `firmware22` branch, checkout the `firmware22` branch:
+```shell
+pip3 install qmk
+git checkout firmware22
+qmk setup
+```
+
 ## Layout Screenshots
 
 <img src="img/0_colemak.png" width="768">
@@ -33,13 +43,6 @@ The most notable features are:
 <img src="img/2_nav.png" width="768">
 <img src="img/3_sym.png" width="768">
 <img src="img/4_mouse.png" width="768">
-
-## Installation
-
-Clone [`ZSA QMK fork`](https://github.com/zsa/qmk_firmware), and there `firmware21` branch.
-Checkout the `firmware21` branch.
-Install QMK using Python 3 toolchain.  
-**TODO**
 
 ## Integration with `hotkey_conv` and/or `layer_lock`
 

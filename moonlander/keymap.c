@@ -28,9 +28,19 @@
 #define SE_SECT_MAC ALGR(KC_6)
 #define MOON_LED_LEVEL LED_LEVEL
 
+enum custom_keycodes {
+  RGB_SLD = SAFE_RANGE,
+  A_LOCK,
+  A_ATAB,
+  ST_MACRO_0,
+  ST_MACRO_1,
+  ST_MACRO_2,
+  ST_MACRO_3,
+  ST_MACRO_4,
+};
+
 static layer_state_t cur_state = 0;
 static bool atab_tapped = false;
-
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -217,6 +227,7 @@ const key_override_t override_underscore = ko_make_basic(MOD_MASK_SHIFT, KC_UNDE
 const key_override_t override_question = ko_make_basic(MOD_MASK_SHIFT, KC_QUESTION, KC_SLASH);
 const key_override_t override_left_angle = ko_make_basic(MOD_MASK_SHIFT, KC_LABK, KC_COMMA);
 const key_override_t override_right_angle = ko_make_basic(MOD_MASK_SHIFT, KC_RABK, KC_DOT);
+const key_override_t override_tild = ko_make_basic(MOD_MASK_SHIFT, KC_TILD, KC_BACK);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
     &override_underscore,
