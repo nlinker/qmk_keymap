@@ -38,11 +38,12 @@ qmk setup
 
 ## Layout Screenshots
 
-<img src="img/0_colemak.png" width="768">
-<img src="img/1_russian.png" width="768">
-<img src="img/2_nav.png" width="768">
-<img src="img/3_sym.png" width="768">
-<img src="img/4_mouse.png" width="768">
+<!--suppress CheckImageSize -->
+<img src="img/0_colemak.png" width="768" alt=""/>
+<img src="img/1_russian.png" width="768" alt=""/>
+<img src="img/2_nav.png" width="768" alt=""/>
+<img src="img/3_sym.png" width="768" alt=""/>
+<img src="img/4_mouse.png" width="768" alt=""/>
 
 ## Integration with `hotkey_conv` and/or `layer_lock`
 
