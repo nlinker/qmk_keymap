@@ -6,23 +6,14 @@
 enum my_layers {
     _QWERTY,
     _RUSSIAN,
-    _NAV,
+    _NAV_L,
+    _NAV_R,
     _SYM,
     _MOUSE,
     _STENO,
 };
 
-enum tap_dance_codes {
-  DANCE_0,
-};
-
 #define L_RUS  TG(_RUSSIAN)
-#define L_LCTL_TAB  MT(MOD_LCTL, KC_TAB)
-#define L_RCTL_UND  TD(DANCE_0)
-
-#define L_LCTL_TAB_ MT(MOD_LCTL, RU_HARD)
-#define L_RCTL_RUE_ MT(MOD_RCTL, RU_E)
-
 
 //#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
