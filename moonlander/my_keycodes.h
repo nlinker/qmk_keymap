@@ -1,7 +1,5 @@
 #pragma once
 
-#include "moonlander.h"
-
 #define A_CAPSW CAPS_WORD
 #define A_TAB_TIMEOUT 300
 

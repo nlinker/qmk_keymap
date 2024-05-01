@@ -13,8 +13,9 @@ MOUSEKEY_ENABLE = yes
 COMBO_ENABLE = yes
 DEFERRED_EXEC_ENABLE = yes
 DYNAMIC_TAPPING_TERM_ENABLE = yes
-
 BACKLIGHT_ENABLE = yes
+# STENO_ENABLE = yes
+# STENO_PROTOCOL = geminipr
 
 SRC = matrix.c
 SRC += features/hotkey_conv.c
