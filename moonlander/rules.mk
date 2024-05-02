@@ -11,8 +11,7 @@ SPACE_CADET_ENABLE = no
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 MOUSEKEY_ENABLE = yes
-# for A_ATAB
-DEFERRED_EXEC_ENABLE = yes
+DEFERRED_EXEC_ENABLE = yes  # for A_ATAB behavior
 
 SRC = matrix.c
 SRC += features/hotkey_conv.c
