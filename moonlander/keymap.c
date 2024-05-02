@@ -83,16 +83,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM combo_cut[] = { LCTL(KC_C), LCTL(KC_V), COMBO_END };
 const uint16_t PROGMEM combo0[] = { KC_UP, KC_END, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_DOWN, KC_RIGHT, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo3[] = { RU_GHE, RU_SHA, COMBO_END};
-const uint16_t PROGMEM combo4[] = { KC_HOME, KC_UP, COMBO_END};
-const uint16_t PROGMEM combo5[] = { MT(MOD_RSFT, KC_J), MT(MOD_RCTL, KC_K), COMBO_END};
-const uint16_t PROGMEM combo6[] = { MT(MOD_RSFT, RU_O), MT(MOD_RCTL, RU_EL), COMBO_END};
-const uint16_t PROGMEM combo7[] = { KC_LEFT, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM combo8[] = { MT(MOD_RSFT, KC_LEFT), MT(MOD_RCTL, KC_DOWN), COMBO_END};
-const uint16_t PROGMEM combo9[] = { KC_F6, KC_F7, COMBO_END};
-const uint16_t PROGMEM combo10[] = { KC_F7, KC_F8, COMBO_END};
-const uint16_t PROGMEM combo11[] = { KC_F8, KC_F9, COMBO_END};
+const uint16_t PROGMEM combo2[] = { RU_GHE, RU_SHA, COMBO_END};
+const uint16_t PROGMEM combo3[] = { KC_HOME, KC_UP, COMBO_END};
+const uint16_t PROGMEM combo4[] = { MT(MOD_RSFT, RU_O), MT(MOD_RCTL, RU_EL), COMBO_END};
+const uint16_t PROGMEM combo5[] = { KC_LEFT, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM combo6[] = { MT(MOD_RSFT, KC_LEFT), MT(MOD_RCTL, KC_DOWN), COMBO_END};
+const uint16_t PROGMEM combo7[] = { KC_F6, KC_F7, COMBO_END};
+const uint16_t PROGMEM combo8[] = { KC_F7, KC_F8, COMBO_END};
+const uint16_t PROGMEM combo9[] = { KC_F8, KC_F9, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_cut, LCTL(KC_X)),
@@ -100,14 +98,12 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo1, KC_PGDN),
     COMBO(combo2, KC_INSERT),
     COMBO(combo3, KC_INSERT),
-    COMBO(combo4, KC_INSERT),
+    COMBO(combo4, KC_DELETE),
     COMBO(combo5, KC_DELETE),
     COMBO(combo6, KC_DELETE),
-    COMBO(combo7, KC_DELETE),
-    COMBO(combo8, KC_DELETE),
-    COMBO(combo9, KC_F1),
-    COMBO(combo10, KC_F2),
-    COMBO(combo11, KC_F3),
+    COMBO(combo7, KC_F1),
+    COMBO(combo8, KC_F2),
+    COMBO(combo9, KC_F3),
 };
 
 extern rgb_config_t rgb_matrix_config;
