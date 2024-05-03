@@ -23,7 +23,7 @@ enum my_layers {
 
 #define L_RSFT  MT(MOD_RSFT, KC_J)
 #define L_RCTL  MT(MOD_RCTL, KC_K)
-#define L_RALT  MT(MOD_LALT, KC_L)
+#define L_RALT  MT(MOD_RALT, KC_L)
 #define L_RSYM  LT(_SYM, KC_O)
 
 // Russian layer modifiers
@@ -34,19 +34,23 @@ enum my_layers {
 
 #define L_RSFT_  MT(MOD_RSFT, RU_O)
 #define L_RCTL_  MT(MOD_RCTL, RU_EL)
-#define L_RALT_  MT(MOD_LALT, RU_DE)
+#define L_RALT_  MT(MOD_RALT, RU_DE)
 #define L_RSYM_  LT(_SYM, RU_ZHE)
 
 // Modifier keys on NavL and NavR layers
-#define ZLK_0 LT(_SYM, KC_0)
-#define ZLA_4 MT(MOD_LALT, KC_4)
-#define ZLC_5 MT(MOD_LCTL, KC_5)
-#define ZLS_6 MT(MOD_LSFT, KC_6)
+//
+//
+//
+#define N_LSYM MO(_SYM)
+#define N_LALT MT(MOD_LALT, KC_4)
+#define N_LCTL MT(MOD_LCTL, KC_5)
+#define N_LSFT MT(MOD_LSFT, KC_6)
 
-#define ZRS_LEFT  MT(MOD_RSFT, KC_LEFT)
-#define ZRC_DOWN  MT(MOD_RCTL, KC_DOWN)
-#define ZRA_RIGHT MT(MOD_LALT, KC_RIGHT)
-#define ZRK_F11   LT(_SYM,KC_F11)
+// ,,,MO(4),
+#define N_RSFT MT(MOD_RSFT, KC_LEFT)
+#define N_RCTL MT(MOD_RCTL, KC_DOWN)
+#define N_RALT MT(MOD_RALT, KC_RIGHT)
+#define N_RSYM LT(_SYM,KC_F11)
 
 // Modifier keys on SymL and SymR layers
 #define ZLA_RCBR  TD(DANCE_0)

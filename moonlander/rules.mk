@@ -12,6 +12,7 @@ CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 DEFERRED_EXEC_ENABLE = yes  # for A_ATAB behavior
+KEY_OVERRIDE_ENABLE = yes # for shift + underscore -> minus
 
 SRC = matrix.c
 SRC += features/hotkey_conv.c
