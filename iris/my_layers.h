@@ -4,31 +4,31 @@
 #include "keymap_russian.h"
 
 enum my_layers {
-    _COLEMAK,
+    _QWERTY,
     _RUSSIAN,
-    _NAV,
-    _FNN,
-    _MOUSE,
+    _NAV_L,
+    _NAV_R,
     _SYM,
-//    _PLOVER,
+    _MOUSE,
+    _STENO,
 };
 
 #define L_RUS  TG(_RUSSIAN)
-#define L_NAV  MO(_NAV)
-#define L_FNN  MO(_FNN)
-#define L_SYM  MO(_SYM)
-//#define L_PLOV MO(_PLOVER)
+#define T_LNAV LT(2,KC_SPACE)
+#define T_LSYM LT(4,KC_TAB)
+#define T_RSYM LT(4,KC_BSPC)
+#define T_RNAV LT(3,KC_ENTER)
 
-// Colemak layer modifiers
+//#define L_LSYM  LT(_SYM, KC_TAB)
 #define L_LSYM  LT(_SYM, KC_A)
-#define L_LALT  MT(MOD_LALT, KC_R)
-#define L_LCTL  MT(MOD_LCTL, KC_S)
-#define L_LSFT  MT(MOD_LSFT, KC_T)
+#define L_LALT  MT(MOD_LALT, KC_S)
+#define L_LCTL  MT(MOD_LCTL, KC_D)
+#define L_LSFT  MT(MOD_LSFT, KC_F)
 
-#define L_RSFT  MT(MOD_RSFT, KC_N)
-#define L_RCTL  MT(MOD_RCTL, KC_E)
-#define L_RALT  MT(MOD_LALT, KC_I)
-#define L_RSYM  LT(_SYM, KC_O)
+#define L_RSFT  MT(MOD_RSFT, KC_J)
+#define L_RCTL  MT(MOD_RCTL, KC_K)
+#define L_RALT  MT(MOD_RALT, KC_L)
+#define L_RSYM  LT(_SYM, KC_SCLN)
 
 // Russian layer modifiers
 #define L_LSYM_  LT(_SYM, RU_EF)
@@ -38,5 +38,26 @@ enum my_layers {
 
 #define L_RSFT_  MT(MOD_RSFT, RU_O)
 #define L_RCTL_  MT(MOD_RCTL, RU_EL)
-#define L_RALT_  MT(MOD_LALT, RU_DE)
+#define L_RALT_  MT(MOD_RALT, RU_DE)
 #define L_RSYM_  LT(_SYM, RU_ZHE)
+
+// Modifier keys on NavL and NavR layers
+#define N_LSYM MO(_SYM)
+#define N_LALT MT(MOD_LALT, KC_4)
+#define N_LCTL MT(MOD_LCTL, KC_5)
+#define N_LSFT MT(MOD_LSFT, KC_6)
+
+// ,,,MO(4),
+#define N_RSFT MT(MOD_RSFT, KC_LEFT)
+#define N_RCTL MT(MOD_RCTL, KC_DOWN)
+#define N_RALT MT(MOD_RALT, KC_RIGHT)
+#define N_RSYM LT(_SYM,KC_F11)
+
+// Modifier keys on SymL and SymR layers
+#define ZLA_RCBR  TD(DANCE_0)
+#define ZLC_LPRN  TD(DANCE_1)
+#define ZLS_RPRN  TD(DANCE_2)
+
+#define ZRS_UNDS  TD(DANCE_3)
+#define ZRC_DQUO  TD(DANCE_4)
+#define ZRA_QUOTE MT(MOD_LALT, KC_QUOTE)

@@ -38,9 +38,6 @@ enum my_layers {
 #define L_RSYM_  LT(_SYM, RU_ZHE)
 
 // Modifier keys on NavL and NavR layers
-//
-//
-//
 #define N_LSYM MO(_SYM)
 #define N_LALT MT(MOD_LALT, KC_4)
 #define N_LCTL MT(MOD_LCTL, KC_5)

@@ -1,19 +1,7 @@
 #pragma once
 
-//#include "moonlander.h"
-
-enum custom_keycodes {
-    RGB_SLD = SAFE_RANGE,
-    L_LOCK,
-    A_ATAB,
-    ST_M_0,
-    ST_M_1,
-    ST_M_2,
-    ST_M_3,
-    ST_M_4,
-};
-
-#define A_CAPSW  CAPS_WORD
+#define A_CAPSW CAPS_WORD
+#define A_TAB_TIMEOUT 300
 
 #define A_CT_Q  LCTL(KC_Q)
 #define A_CT_W  LCTL(KC_W)
