@@ -2,6 +2,7 @@
   Set any config.h overrides for your specific keymap here.
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
+
 #define ORYX_CONFIGURATOR
 #define PERMISSIVE_HOLD
 
@@ -15,7 +16,7 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX 100
 
-#define FIRMWARE_VERSION u8"D5r7P/onEze"
+#define FIRMWARE_VERSION u8"D5r7P/vdeMR"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
