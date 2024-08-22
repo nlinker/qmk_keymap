@@ -6,7 +6,8 @@
 enum my_layers {
     _QWERTY,
     _RUSSIAN,
-    _NAV,
+    _NAV_L,
+    _NAV_R,
     _SYM,
     _MOUSE,
     _STENO,
