@@ -1,10 +1,10 @@
-#define RU_HARD KC_RBRC
+#define RU_YO KC_GRV
 #define RU_SHTI KC_Q
 #define RU_TSE KC_W
 #define RU_U KC_E
 #define RU_KA KC_R
 #define RU_IE KC_T
-#define RU_YO KC_GRV
+#define RU_HARD KC_RBRC
 #define RU_EF KC_A
 #define RU_YERU KC_S
 #define RU_VE KC_D
