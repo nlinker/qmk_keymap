@@ -16,11 +16,11 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX 100
 
-#define FIRMWARE_VERSION u8"D5r7P/nxbgW"
+#define FIRMWARE_VERSION u8"D5r7P/X6Jy9"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 10
+#define COMBO_COUNT 8
 
 #define RGB_MATRIX_STARTUP_SPD 60
 #define COMBO_MUST_HOLD_MODS // if a combo triggers a modifier, only trigger when the combo is held
