@@ -19,9 +19,9 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX 100
 
-#define FIRMWARE_VERSION u8"Qm9Zm/Ee4YqQ"
+#define FIRMWARE_VERSION u8"Qm9Zm/bvgxW7"
 
-#define SERIAL_NUMBER "Qm9Zm/Ee4YqQ"
+#define SERIAL_NUMBER "Qm9Zm/bvgxW7"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 8
 
